@@ -1,0 +1,15 @@
+C:\Users\cadupoles\documents\visual studio 2012\Projects\TechSupportTicketSystem\TechSupportTicketSystem\bin\TechSupportTicketSystem.dll
+C:\Users\cadupoles\documents\visual studio 2012\Projects\TechSupportTicketSystem\TechSupportTicketSystem\bin\TechSupportTicketSystem.pdb
+C:\Users\cadupoles\documents\visual studio 2012\Projects\TechSupportTicketSystem\TechSupportTicketSystem\obj\Debug\TechSupportTicketSystem.csprojResolveAssemblyReference.cache
+C:\Users\cadupoles\documents\visual studio 2012\Projects\TechSupportTicketSystem\TechSupportTicketSystem\obj\Debug\TechSupportTicketSystem.dll
+C:\Users\cadupoles\documents\visual studio 2012\Projects\TechSupportTicketSystem\TechSupportTicketSystem\obj\Debug\TechSupportTicketSystem.pdb
+C:\Users\Andrey\Desktop\GitHub\techSupport-Production\TechSupportTicketSystem\TechSupportTicketSystem\bin\TechSupportTicketSystem.dll
+C:\Users\Andrey\Desktop\GitHub\techSupport-Production\TechSupportTicketSystem\TechSupportTicketSystem\bin\TechSupportTicketSystem.pdb
+C:\Users\Andrey\Desktop\GitHub\techSupport-Production\TechSupportTicketSystem\TechSupportTicketSystem\obj\Debug\TechSupportTicketSystem.csprojResolveAssemblyReference.cache
+C:\Users\Andrey\Desktop\GitHub\techSupport-Production\TechSupportTicketSystem\TechSupportTicketSystem\obj\Debug\TechSupportTicketSystem.dll
+C:\Users\Andrey\Desktop\GitHub\techSupport-Production\TechSupportTicketSystem\TechSupportTicketSystem\obj\Debug\TechSupportTicketSystem.pdb
+C:\Users\cadupoles\Documents\Visual Studio 2012\GitHub\TechSupportTicketSystem\TechSupportTicketSystem\bin\TechSupportTicketSystem.dll
+C:\Users\cadupoles\Documents\Visual Studio 2012\GitHub\TechSupportTicketSystem\TechSupportTicketSystem\bin\TechSupportTicketSystem.pdb
+C:\Users\cadupoles\Documents\Visual Studio 2012\GitHub\TechSupportTicketSystem\TechSupportTicketSystem\obj\Debug\TechSupportTicketSystem.csprojResolveAssemblyReference.cache
+C:\Users\cadupoles\Documents\Visual Studio 2012\GitHub\TechSupportTicketSystem\TechSupportTicketSystem\obj\Debug\TechSupportTicketSystem.dll
+C:\Users\cadupoles\Documents\Visual Studio 2012\GitHub\TechSupportTicketSystem\TechSupportTicketSystem\obj\Debug\TechSupportTicketSystem.pdb

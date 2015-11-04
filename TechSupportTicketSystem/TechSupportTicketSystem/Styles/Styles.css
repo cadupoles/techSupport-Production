@@ -1,0 +1,150 @@
+﻿/* Default Page Styles*/
+/*
+*
+*
+*/
+/* The styles for the elements */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: .80em;
+    background-color: white;
+    padding: 0px;
+    margin: 0px;
+}
+
+table {
+  padding: 20px;
+}
+
+
+/* the styles for classes */
+
+.Header {
+    text-align: center;
+}
+
+.menu ul li a {
+    background-color: #C0C0C0;
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #008080;
+    text-decoration: none;
+    line-height: 1.35em;
+    display: block;
+    white-space: nowrap;
+    margin: 5px;
+    padding: 7px 10px;
+}
+
+.menu ul li a:hover {
+    background-color: #bfcbd6;
+    color: #006600;
+    text-decoration: none;
+    text-decoration: underline;
+}
+.footer {
+    font-size: 80%;
+    text-align: center;
+}
+.image_header {
+   height: 95px; 
+   width: 311px;
+}
+
+.Content {
+   border: 4px double black;
+}
+
+/*Styles for Login, Registration, Change Password and Restore Password Pages */
+
+#ContentPlaceHolder1_Login1 {
+    border-collapse: collapse;
+    margin: 0 auto;
+    border: 2px double grey;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#ContentPlaceHolder1_CreateUserWizard1 {
+    border-collapse: collapse;
+    margin: 0 auto;
+    border: 2px double grey;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#ContentPlaceHolder1_ChangePassword1 {
+    border-collapse: collapse;
+    margin: 0 auto;
+    border: 2px double grey;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#ContentPlaceHolder1_PasswordRecovery1 {
+    border-collapse: collapse;
+    margin: 0 auto;
+    border: 2px double grey;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+/*Syles for Add Incident Page*/
+
+.addIncident_page {
+    margin: auto;
+    width: 43%;
+    padding: 28px;
+    padding-bottom: 0px;
+    padding-top: 25px;
+    padding-left: 25px;
+    border: 3px solid grey;
+    background: #eee;
+}
+
+#header_center {
+    margin: auto;
+    width: 20%;
+    padding: 25px;
+     
+}
+
+.auto-style3 {
+    width: 354px;
+    padding-top: 10px;
+}
+
+
+/*End*/
+
+
+/*.techsupport_img {
+
+    margin-left: 80px;
+    margin-top: 15px;
+
+}
+
+.td_right {
+
+    text-align: right;
+}
+
+.table_log {
+
+    margin: 0 auto;
+    width: 500px;
+
+}
+
+
+
+.button {
+    width: 90px;
+    color: #FF0000;
+    margin-bottom: 30px;
+    margin-left: 142px;
+}*/
+
