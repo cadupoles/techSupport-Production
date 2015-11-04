@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content5" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content6" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content6" ContentPlaceHolderID="MainContent" runat="server">
 
     <%--Control element for registering users --%>
     <asp:CreateUserWizard ID="CreateUserWizard1" runat="server">
