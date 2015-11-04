@@ -36,12 +36,12 @@
             <asp:TemplateField HeaderText="Version" SortExpression="Version">
                 <EditItemTemplate>
                     <asp:TextBox ID="txtEditVersion" runat="server" Text='<%# Bind("Version") %>'></asp:TextBox>
-                    <asp:CompareValidator ID="VersionEditCompareValidator" runat="server" ControlToValidate="txtEditVersion" ErrorMessage="Version must be number with one digit." Type="Currency" Font-Bold="True" Font-Size="Smaller" ForeColor="Red"></asp:CompareValidator>
+                    <asp:CompareValidator ID="VersionEditCompareValidator" runat="server" ControlToValidate="txtEditVersion" ErrorMessage="Version must be number with one digit." Type="Currency" Font-Bold="True" Font-Size="Smaller" ForeColor="Red" Operator="DataTypeCheck"></asp:CompareValidator>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Version is a required field." Font-Bold="True" Font-Size="Smaller" ForeColor="Red"></asp:RequiredFieldValidator>
                 </EditItemTemplate>
                 <FooterTemplate>
                     <asp:TextBox ID="txtVersion" runat="server"></asp:TextBox>
-                    <asp:CompareValidator ID="VersionCompareValidator" runat="server" ControlToValidate="txtVersion" ErrorMessage="Version must  be a number with one digit." Font-Bold="True" Font-Size="Smaller" ForeColor="Red" Type="Currency"></asp:CompareValidator>
+                    <asp:CompareValidator ID="VersionCompareValidator" runat="server" ControlToValidate="txtVersion" ErrorMessage="Version must  be a number with one digit." Font-Bold="True" Font-Size="Smaller" ForeColor="Red" Type="Currency" Operator="DataTypeCheck"></asp:CompareValidator>
                     <asp:RequiredFieldValidator ID="VersionRequiredFieldValidator" runat="server" ControlToValidate="txtVersion" ErrorMessage="Version is a required field." Font-Bold="True" Font-Size="Smaller" ForeColor="Red"></asp:RequiredFieldValidator>
                 </FooterTemplate>
                 <ItemTemplate>
