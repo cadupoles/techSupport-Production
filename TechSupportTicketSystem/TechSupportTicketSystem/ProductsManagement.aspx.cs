@@ -22,7 +22,18 @@ namespace TechSupportTicketSystem
         
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // Chech if the page is loaded for the first time
+            if (!this.IsPostBack)
+            {
+                // Check if the user is authencticated and has one of the role
+                if (!User.Identity.IsAuthenticated || (!User.IsInRole("Admin") &&
+                    (!User.IsInRole("Support"))))
+                {
+                    Server.Transfer("~/AccessDenied.aspx");
+                    // Response.Redirect("~/AccessDenied.aspx");
+                    return;
+                }
+            }
         }
 
         protected void btnInsert_Click(object sender, EventArgs e)

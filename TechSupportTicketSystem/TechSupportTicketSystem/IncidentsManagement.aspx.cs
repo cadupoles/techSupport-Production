@@ -14,19 +14,16 @@ namespace TechSupportTicketSystem
         {
             try
             {
-                if (!IsPostBack)
+                // Chech if the page is loaded for the first time
+                if (!this.IsPostBack)
                 {
-                    //check for authentication
-                    if (User.Identity.IsAuthenticated &&
-                        User.IsInRole("Admin") && User.IsInRole("Support"))
+                    // Check if the user is authencticated and has one of the role
+                    if (!User.Identity.IsAuthenticated || (!User.IsInRole("Admin") &&
+                        (!User.IsInRole("Support"))))
                     {
-                        btnAddIncident.Visible = true;
-                    }
-                    else
-                    {
-                        btnAddIncident.Visible = false;
                         Server.Transfer("~/AccessDenied.aspx");
-                        //return;
+                        // Response.Redirect("~/AccessDenied.aspx");
+                        return;
                     }
                 }
 
