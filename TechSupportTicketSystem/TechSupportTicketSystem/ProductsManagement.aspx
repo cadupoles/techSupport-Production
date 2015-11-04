@@ -22,12 +22,12 @@
                 <EditItemTemplate>
                     <asp:TextBox ID="txtNameEdit" runat="server" Text='<%# Bind("Name") %>'></asp:TextBox>
                     <asp:CompareValidator ID="NameEditCompareValidator" runat="server" ControlToValidate="txtNameEdit" ErrorMessage="Name must contain letters." ValueToCompare="string" Font-Bold="True" Font-Size="Smaller" ForeColor="Red"></asp:CompareValidator>
-                    <asp:RequiredFieldValidator ID="NameEditRequiredFieldValidator" runat="server" ControlToValidate="txtNameEdit" ErrorMessage="RequiredFieldValidator" Font-Bold="True" Font-Size="Smaller" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="NameEditRequiredFieldValidator" runat="server" ControlToValidate="txtNameEdit" ErrorMessage="Name is a required field" Font-Bold="True" Font-Size="Smaller" ForeColor="Red"></asp:RequiredFieldValidator>
                 </EditItemTemplate>
                 <FooterTemplate>
                     <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
                     <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="txtName" ErrorMessage="Name must contain letters." ValueToCompare="String" Font-Bold="True" Font-Size="Smaller" ForeColor="Red"></asp:CompareValidator>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtName" ErrorMessage="Product is a required field." Font-Bold="True" Font-Size="Smaller" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtName" ErrorMessage="Name is a required field." Font-Bold="True" Font-Size="Smaller" ForeColor="Red"></asp:RequiredFieldValidator>
                 </FooterTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label2" runat="server" Text='<%# Bind("Name") %>'></asp:Label>
@@ -37,7 +37,7 @@
                 <EditItemTemplate>
                     <asp:TextBox ID="txtEditVersion" runat="server" Text='<%# Bind("Version") %>'></asp:TextBox>
                     <asp:CompareValidator ID="VersionEditCompareValidator" runat="server" ControlToValidate="txtEditVersion" ErrorMessage="Version must be number with one digit." Type="Currency" Font-Bold="True" Font-Size="Smaller" ForeColor="Red" Operator="DataTypeCheck"></asp:CompareValidator>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Version is a required field." Font-Bold="True" Font-Size="Smaller" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="VersionEditRequiredFieldValidator" runat="server" ErrorMessage="Version is a required field." Font-Bold="True" Font-Size="Smaller" ForeColor="Red" ControlToValidate="txtEditVersion"></asp:RequiredFieldValidator>
                 </EditItemTemplate>
                 <FooterTemplate>
                     <asp:TextBox ID="txtVersion" runat="server"></asp:TextBox>
@@ -60,7 +60,7 @@
                     <asp:CompareValidator ID="DateEditCompareValidator" runat="server" ControlToValidate="txtReleaseDate" ErrorMessage="Please enter a valid date." Font-Bold="True" Font-Size="Smaller" ForeColor="Red" Type="Date" Operator="DataTypeCheck"></asp:CompareValidator>
                 </FooterTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="Label4" runat="server" Text='<%# Bind("ReleaseDate") %>'></asp:Label>
+                    <asp:Label ID="Label4" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, ("ReleaseDate"), "{0:d}") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField ShowHeader="False">
