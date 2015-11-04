@@ -52,12 +52,12 @@
                 <EditItemTemplate>
                     <asp:TextBox ID="txtEditDate" runat="server" Text='<%# Bind("ReleaseDate") %>'></asp:TextBox>
                     <asp:RequiredFieldValidator ID="DateEditRequiredFieldValidator" runat="server" ControlToValidate="txtEditDate" ErrorMessage="Release Date is a required field." Font-Bold="True" Font-Size="Smaller" ForeColor="Red"></asp:RequiredFieldValidator>
-                    <asp:CompareValidator ID="DateEditCompareValidator" runat="server" ControlToValidate="txtEditDate" ErrorMessage="Please enter a valid date." Type="Date" Font-Bold="True" Font-Size="Smaller" ForeColor="Red"></asp:CompareValidator>
+                    <asp:CompareValidator ID="DateEditCompareValidator" runat="server" ControlToValidate="txtEditDate" ErrorMessage="Please enter a valid date." Type="Date" Font-Bold="True" Font-Size="Smaller" ForeColor="Red" Operator="DataTypeCheck"></asp:CompareValidator>
                 </EditItemTemplate>
                 <FooterTemplate>
                     <asp:TextBox ID="txtReleaseDate" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="DateRequiredFieldValidator" runat="server" ControlToValidate="txtReleaseDate" ErrorMessage="Release Date is a required field." Font-Bold="True" Font-Size="Smaller" ForeColor="Red"></asp:RequiredFieldValidator>
-                    <asp:CompareValidator ID="DateEditCompareValidator" runat="server" ControlToValidate="txtReleaseDate" ErrorMessage="Please enter a valid date." Font-Bold="True" Font-Size="Smaller" ForeColor="Red" Type="Date"></asp:CompareValidator>
+                    <asp:CompareValidator ID="DateEditCompareValidator" runat="server" ControlToValidate="txtReleaseDate" ErrorMessage="Please enter a valid date." Font-Bold="True" Font-Size="Smaller" ForeColor="Red" Type="Date" Operator="DataTypeCheck"></asp:CompareValidator>
                 </FooterTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label4" runat="server" Text='<%# Bind("ReleaseDate") %>'></asp:Label>
