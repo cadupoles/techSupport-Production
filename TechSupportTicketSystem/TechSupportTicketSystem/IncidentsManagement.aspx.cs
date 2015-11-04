@@ -47,5 +47,10 @@ namespace TechSupportTicketSystem
 
 
         }
+
+        protected void btnAddIncident_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/AddIncident.aspx");
+        }
     }
 }

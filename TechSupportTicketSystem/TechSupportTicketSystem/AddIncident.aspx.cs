@@ -5,12 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace TechSupportTicketSystem
 {
     public partial class AddIncident : System.Web.UI.Page
     {
-        public SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\Andrey\Desktop\GitHub\techSupport-Production\TechSupportTicketSystem\TechSupportTicketSystem\App_Data\TechSupport.mdf;Integrated Security=True");
+        public SqlConnection connection = new SqlConnection(GetConnectionString());
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -41,6 +42,11 @@ namespace TechSupportTicketSystem
             string sDate = dt.ToShortDateString();
             txtBoxDateOpened.Text = sDate;
 
+        }
+
+         private static string GetConnectionString()
+        {
+            return ConfigurationManager.ConnectionStrings["techSupportDB"].ConnectionString;
         }
 
         // Method for binding data of the drob down list

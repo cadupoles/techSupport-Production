@@ -131,7 +131,7 @@
         </UpdateParameters>
     </asp:SqlDataSource>
     <br />
-    <asp:Button ID="btnAddIncident" runat="server" Text="Add Incident" />
+    <asp:Button ID="btnAddIncident" runat="server" Text="Add Incident" OnClick="btnAddIncident_Click" />
     <br />
     </asp:Content>
 
