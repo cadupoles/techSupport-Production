@@ -63,7 +63,7 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="CustomerID" SortExpression="CustomerID">
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("CustomerID") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtEditCustomerID" runat="server" Text='<%# Bind("CustomerID") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label3" runat="server" Text='<%# Bind("CustomerID") %>'></asp:Label>
