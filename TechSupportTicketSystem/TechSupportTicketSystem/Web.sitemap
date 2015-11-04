@@ -5,15 +5,15 @@
   
     <siteMapNode url="CustomerIncidents.aspx" title="Customer Incidents" description="" roles="admin" />
     
-    <siteMapNode url="~/ProductsManagement.aspx" title="Product Maintenance" description="" roles="support" />
+    <siteMapNode url="~/ProductsManagement.aspx" title="Product Maintenance" description="" roles="support, admin" />
 
-    <siteMapNode url="TechnicianMaintenance.aspx" title="Technician Maintenance" description="" roles="technician" />
+    <siteMapNode url="TechnicianMaintenance.aspx" title="Technician Maintenance" description="" roles="technician, admin" />
 
-    <siteMapNode url="AddRegistration.aspx" title="Add Registration" decsription=""  />
+    <siteMapNode url="AddRegistration.aspx" title="Add Registration" decsription="" roles="admin" />
 
-    <siteMapNode url="~/IncidentsManagement.aspx" title="Incidents Management" decsription=""  />
+    <siteMapNode url="~/IncidentsManagement.aspx" title="Incidents Management" decsription="" roles="admin" />
 
-    <siteMapNode url="AddIncident.aspx" title="Add Incident"  />
+    <siteMapNode url="AddIncident.aspx" title="Add Incident" roles="admin" />
 
     </siteMapNode>
 </siteMap>
