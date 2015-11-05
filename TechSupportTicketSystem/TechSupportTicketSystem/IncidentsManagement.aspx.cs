@@ -25,6 +25,8 @@ namespace TechSupportTicketSystem
                         // Response.Redirect("~/AccessDenied.aspx");
                         return;
                     }
+
+                    //IncidentsDetailGridView.DataBind();
                 }
 
 

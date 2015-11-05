@@ -58,22 +58,22 @@ namespace TechSupportTicketSystem {
         protected global::System.Web.UI.WebControls.SqlDataSource CustomerGridSqlDataSource;
         
         /// <summary>
-        /// IncidentsDetailGridView control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView IncidentsDetailGridView;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// IncidentDetailSqlDataSource control.
+        /// IncidentsSqlDataSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource IncidentDetailSqlDataSource;
+        protected global::System.Web.UI.WebControls.SqlDataSource IncidentsSqlDataSource;
         
         /// <summary>
         /// btnAddIncident control.
