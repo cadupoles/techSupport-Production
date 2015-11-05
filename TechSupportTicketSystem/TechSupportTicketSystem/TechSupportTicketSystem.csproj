@@ -71,6 +71,7 @@
       <DependentUpon>TechSupport.mdf</DependentUpon>
     </Content>
     <Content Include="Default.aspx" />
+    <Content Include="EditIncident.aspx" />
     <Content Include="Images\itSupport.jpg" />
     <Content Include="Images\techsupport1.jpg" />
     <Content Include="Images\techsupport2.jpg" />
@@ -118,12 +119,20 @@
     <Compile Include="AddIncident.aspx.designer.cs">
       <DependentUpon>AddIncident.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\Incidents.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditIncident.aspx.cs">
+      <DependentUpon>EditIncident.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditIncident.aspx.designer.cs">
+      <DependentUpon>EditIncident.aspx</DependentUpon>
     </Compile>
     <Compile Include="IncidentsManagement.aspx.cs">
       <DependentUpon>IncidentsManagement.aspx</DependentUpon>
@@ -160,9 +169,7 @@
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Code\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -50,42 +50,18 @@
     </asp:SqlDataSource>
     <br />
     <br />
-    <h3>Incidents<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="IncidentID" DataSourceID="IncidentsSqlDataSource" AllowSorting="True">
+    <h3>Incidents<asp:GridView ID="IncidentsGridView" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="IncidentID" DataSourceID="IncidentsSqlDataSource" OnSelectedIndexChanged="LinkButton1_Click">
         <Columns>
             <asp:BoundField DataField="IncidentID" HeaderText="IncidentID" InsertVisible="False" ReadOnly="True" SortExpression="IncidentID" />
+            <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" SortExpression="CustomerID" />
+            <asp:BoundField DataField="TechID" HeaderText="TechID" SortExpression="TechID" />
             <asp:BoundField DataField="ProductCode" HeaderText="ProductCode" SortExpression="ProductCode" />
             <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
             <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
-            <asp:TemplateField HeaderText="DateOpened" SortExpression="DateOpened">
-                <ItemTemplate>
-                    <asp:Label ID="Label2" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, ("DateOpened"), "{0:d}") %>'></asp:Label>
-                </ItemTemplate>
-            </asp:TemplateField>
-            <asp:TemplateField HeaderText="DateClosed" SortExpression="DateClosed">
-                <EditItemTemplate>
-                    <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("DateClosed") %>'></asp:TextBox>
-                </EditItemTemplate>
-                <ItemTemplate>
-                    <asp:Label ID="Label3" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, ("DateClosed"), "{0:d}") %>'></asp:Label>
-                </ItemTemplate>
-            </asp:TemplateField>
-            <asp:TemplateField HeaderText="Status" SortExpression="Status">
-                <EditItemTemplate>
-                    <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" DataSourceID="IncidentsSqlDataSource" DataTextField="Status" DataValueField="Status" SelectedValue='<%# Bind("Status") %>'>
-                        <asp:ListItem>Open</asp:ListItem>
-                        <asp:ListItem>Closed</asp:ListItem>
-                        <asp:ListItem>On Hold</asp:ListItem>
-                    </asp:DropDownList>
-                </EditItemTemplate>
-                <ItemTemplate>
-                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("Status") %>'></asp:Label>
-                </ItemTemplate>
-            </asp:TemplateField>
-            <asp:TemplateField ShowHeader="False">
-                <ItemTemplate>
-                    <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Select" Text="Select"></asp:LinkButton>
-                </ItemTemplate>
-            </asp:TemplateField>
+            <asp:BoundField DataField="DateOpened" HeaderText="DateOpened" SortExpression="DateOpened" />
+            <asp:BoundField DataField="DateClosed" HeaderText="DateClosed" SortExpression="DateClosed" />
+            <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
+            <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
         </Columns>
         <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
         <HeaderStyle BackColor="#003399" Font-Bold="True" ForeColor="#CCCCFF" />
@@ -147,6 +123,7 @@
     </h3>
     <br />
     <asp:Button ID="btnAddIncident" runat="server" Text="Add Incident" OnClick="btnAddIncident_Click" />
+    <asp:Button ID="btnEditIncident" runat="server" Text="Edit Incident" OnClick="btnEditIncident_Click" />
     <br />
     </asp:Content>
 
