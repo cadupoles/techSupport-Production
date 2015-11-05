@@ -40,6 +40,42 @@ namespace TechSupportTicketSystem {
         protected global::System.Web.UI.WebControls.Button btnGetCustomer;
         
         /// <summary>
+        /// CustomerIDRangeValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator CustomerIDRangeValidator;
+        
+        /// <summary>
+        /// CustomerIDRequiredFieldValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator CustomerIDRequiredFieldValidator;
+        
+        /// <summary>
+        /// CustomerIDCompareValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CustomerIDCompareValidator;
+        
+        /// <summary>
+        /// lblCustomerGrid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCustomerGrid;
+        
+        /// <summary>
         /// CustomerGridView control.
         /// </summary>
         /// <remarks>
@@ -56,6 +92,15 @@ namespace TechSupportTicketSystem {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource CustomerGridSqlDataSource;
+        
+        /// <summary>
+        /// lblIncidents control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIncidents;
         
         /// <summary>
         /// IncidentsGridView control.

@@ -14,14 +14,20 @@
             </td>
             <td>
                 <asp:TextBox ID="txtCustomerID" runat="server"></asp:TextBox>
-                <asp:Button ID="btnGetCustomer" runat="server" Text="Get Customer" Width="207px" Font-Size="Small" />
+                <asp:Button ID="btnGetCustomer" runat="server" Text="Get Customer" Width="207px" Font-Size="Small" OnClick="btnGetCustomer_Click" />
+                <br />
+                <asp:RangeValidator ID="CustomerIDRangeValidator" runat="server" ErrorMessage="RangeValidator" ControlToValidate="txtCustomerID" Font-Bold="True" Font-Size="Smaller" ForeColor="Red" MaximumValue="9999" MinimumValue="1000">Customer ID must be between 1000 and 9999</asp:RangeValidator>
+                <br />
+                <asp:RequiredFieldValidator ID="CustomerIDRequiredFieldValidator" runat="server" ControlToValidate="txtCustomerID" ErrorMessage="RequiredFieldValidator" Font-Bold="True" Font-Size="Smaller" ForeColor="Red">This is a required field.</asp:RequiredFieldValidator>
+                <br />
+                <asp:CompareValidator ID="CustomerIDCompareValidator" runat="server" ErrorMessage="CustomerID must be a number" ControlToValidate="txtCustomerID" Font-Bold="True" Font-Size="Smaller" ForeColor="Red" Operator="DataTypeCheck" Type="Integer"></asp:CompareValidator>
             </td>
             <td>&nbsp;</td>
         </tr>
     </table>
     <br />
     <br />
-    <h2>Customer Details</h2>
+    <asp:Label ID="lblCustomerGrid" runat="server" Font-Size="Large"></asp:Label>
     <asp:GridView ID="CustomerGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="CustomerID" DataSourceID="CustomerGridSqlDataSource" CellPadding="4" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px">
         <Columns>
             <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" InsertVisible="False" ReadOnly="True" SortExpression="CustomerID" />
@@ -50,7 +56,8 @@
     </asp:SqlDataSource>
     <br />
     <br />
-    <h3>Incidents<asp:GridView ID="IncidentsGridView" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="IncidentID" DataSourceID="IncidentsSqlDataSource" OnSelectedIndexChanged="LinkButton1_Click">
+    <asp:Label ID="lblIncidents" runat="server" Font-Size="Large"></asp:Label>
+    <asp:GridView ID="IncidentsGridView" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="IncidentID" DataSourceID="IncidentsSqlDataSource" OnSelectedIndexChanged="LinkButton1_Click">
         <Columns>
             <asp:BoundField DataField="IncidentID" HeaderText="IncidentID" InsertVisible="False" ReadOnly="True" SortExpression="IncidentID" />
             <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" SortExpression="CustomerID" />
@@ -73,8 +80,7 @@
         <SortedDescendingCellStyle BackColor="#D6DFDF" />
         <SortedDescendingHeaderStyle BackColor="#002876" />
         </asp:GridView>
-    </h3>
-    <h3>
+    
         <asp:SqlDataSource ID="IncidentsSqlDataSource" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:techSupportDB %>" DeleteCommand="DELETE FROM [Incidents] WHERE [IncidentID] = @original_IncidentID AND [CustomerID] = @original_CustomerID AND [ProductCode] = @original_ProductCode AND (([TechID] = @original_TechID) OR ([TechID] IS NULL AND @original_TechID IS NULL)) AND [DateOpened] = @original_DateOpened AND (([DateClosed] = @original_DateClosed) OR ([DateClosed] IS NULL AND @original_DateClosed IS NULL)) AND [Title] = @original_Title AND [Description] = @original_Description AND (([Status] = @original_Status) OR ([Status] IS NULL AND @original_Status IS NULL))" InsertCommand="INSERT INTO [Incidents] ([CustomerID], [ProductCode], [TechID], [DateOpened], [DateClosed], [Title], [Description], [Status]) VALUES (@CustomerID, @ProductCode, @TechID, @DateOpened, @DateClosed, @Title, @Description, @Status)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT [IncidentID], [CustomerID], [ProductCode], [TechID], [DateOpened], [DateClosed], [Title], [Description], [Status] FROM [Incidents] WHERE ([CustomerID] = @CustomerID)" UpdateCommand="UPDATE [Incidents] SET [CustomerID] = @CustomerID, [ProductCode] = @ProductCode, [TechID] = @TechID, [DateOpened] = @DateOpened, [DateClosed] = @DateClosed, [Title] = @Title, [Description] = @Description, [Status] = @Status WHERE [IncidentID] = @original_IncidentID AND [CustomerID] = @original_CustomerID AND [ProductCode] = @original_ProductCode AND (([TechID] = @original_TechID) OR ([TechID] IS NULL AND @original_TechID IS NULL)) AND [DateOpened] = @original_DateOpened AND (([DateClosed] = @original_DateClosed) OR ([DateClosed] IS NULL AND @original_DateClosed IS NULL)) AND [Title] = @original_Title AND [Description] = @original_Description AND (([Status] = @original_Status) OR ([Status] IS NULL AND @original_Status IS NULL))">
             <DeleteParameters>
                 <asp:Parameter Name="original_IncidentID" Type="Int32" />
@@ -120,7 +126,7 @@
                 <asp:Parameter Name="original_Status" Type="String" />
             </UpdateParameters>
         </asp:SqlDataSource>
-    </h3>
+    
     <br />
     <asp:Button ID="btnAddIncident" runat="server" Text="Add Incident" OnClick="btnAddIncident_Click" />
     <asp:Button ID="btnEditIncident" runat="server" Text="Edit Incident" OnClick="btnEditIncident_Click" />

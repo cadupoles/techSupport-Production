@@ -11,7 +11,6 @@ namespace TechSupportTicketSystem
     public partial class IncidentsManagement : System.Web.UI.Page
     {
         
-        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -44,12 +43,13 @@ namespace TechSupportTicketSystem
                     }
                 }
             }
-            catch (Exception ex)
+            catch 
             {
-                Console.WriteLine(ex.Message);
+                throw;
             }
 
-
+            lblCustomerGrid.Enabled = false;
+            lblIncidents.Enabled = false;
 
         }
 
@@ -72,7 +72,7 @@ namespace TechSupportTicketSystem
             GridViewRow row = IncidentsGridView.SelectedRow;
 
             // create the incident object
-            Incidents incident = new Incidents();
+            App_Code.Incidents incident = new App_Code.Incidents();
 
             incident.IncidentID = Convert.ToInt32(row.Cells[0].Text);
             incident.CustomerID = Convert.ToInt32(row.Cells[1].Text);
@@ -83,98 +83,114 @@ namespace TechSupportTicketSystem
             incident.DateOpened = Convert.ToDateTime(row.Cells[6].Text);
             
 
-            if (incident.DateClosed != null)
+            if (row.Cells[7].Text == string.Empty)
             {
-                incident.DateClosed = Convert.ToDateTime(row.Cells[7].Text);
+                incident.DateClosed = DateTime.Today;
             }
             
             incident.Status = row.Cells[8].Text;
+
+           
+            //code to set values in obj1
+            Session["Incident"] = incident;  //store object in session variable
 
             Response.Redirect("~/EditIncident.aspx");
 
         }
 
-        public class Incidents
+        protected void btnGetCustomer_Click(object sender, EventArgs e)
         {
+            
+            lblCustomerGrid.Enabled = true;
+            lblCustomerGrid.Text = "Customer Detail";
 
-            public Incidents()
-            {
-
-            }
-
-
-            private int incidentID;
-
-            public int IncidentID
-            {
-                get { return incidentID; }
-                set { incidentID = value; }
-            }
-
-            private int customerID;
-
-            public int CustomerID
-            {
-                get { return customerID; }
-                set { customerID = value; }
-            }
-
-            private string productCode;
-
-            public string ProductCode
-            {
-                get { return productCode; }
-                set { productCode = value; }
-            }
-
-            private string title;
-
-            public string Title
-            {
-                get { return title; }
-                set { title = value; }
-            }
-
-            private string description;
-
-            public string Description
-            {
-                get { return description; }
-                set { description = value; }
-            }
+            lblIncidents.Enabled = true;
+            lblIncidents.Text = "Incidents";
 
 
-            private int techID;
-
-            public int TechID
-            {
-                get { return techID; }
-                set { techID = value; }
-            }
-
-            private DateTime dateOpened;
-
-            public DateTime DateOpened
-            {
-                get { return dateOpened; }
-                set { dateOpened = value; }
-            }
-
-            private DateTime dateClosed;
-
-            public DateTime DateClosed
-            {
-                get { return dateClosed; }
-                set { dateClosed = value; }
-            }
-
-            private string status;
-
-            public string Status
-            {
-                get { return status; }
-                set { status = value; }
-            }
         }
+
+        //public class Incidents
+        //{
+
+        //    public Incidents()
+        //    {
+
+        //    }
+
+
+        //    private int incidentID;
+
+        //    public int IncidentID
+        //    {
+        //        get { return incidentID; }
+        //        set { incidentID = value; }
+        //    }
+
+        //    private int customerID;
+
+        //    public int CustomerID
+        //    {
+        //        get { return customerID; }
+        //        set { customerID = value; }
+        //    }
+
+        //    private string productCode;
+
+        //    public string ProductCode
+        //    {
+        //        get { return productCode; }
+        //        set { productCode = value; }
+        //    }
+
+        //    private string title;
+
+        //    public string Title
+        //    {
+        //        get { return title; }
+        //        set { title = value; }
+        //    }
+
+        //    private string description;
+
+        //    public string Description
+        //    {
+        //        get { return description; }
+        //        set { description = value; }
+        //    }
+
+
+        //    private int techID;
+
+        //    public int TechID
+        //    {
+        //        get { return techID; }
+        //        set { techID = value; }
+        //    }
+
+        //    private DateTime dateOpened;
+
+        //    public DateTime DateOpened
+        //    {
+        //        get { return dateOpened; }
+        //        set { dateOpened = value; }
+        //    }
+
+        //    private DateTime dateClosed;
+
+        //    public DateTime DateClosed
+        //    {
+        //        get { return dateClosed; }
+        //        set { dateClosed = value; }
+        //    }
+
+        //    private string status;
+
+        //    public string Status
+        //    {
+        //        get { return status; }
+        //        set { status = value; }
+        //    }
+        //}
     }
 }
