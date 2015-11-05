@@ -13,6 +13,33 @@ namespace TechSupportTicketSystem {
     public partial class IncidentsManagement {
         
         /// <summary>
+        /// lblCustomerGrid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCustomerGrid;
+        
+        /// <summary>
+        /// CustomerGridView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView CustomerGridView;
+        
+        /// <summary>
+        /// CustomerGridSqlDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource CustomerGridSqlDataSource;
+        
+        /// <summary>
         /// lblGetCustID control.
         /// </summary>
         /// <remarks>
@@ -65,33 +92,6 @@ namespace TechSupportTicketSystem {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CompareValidator CustomerIDCompareValidator;
-        
-        /// <summary>
-        /// lblCustomerGrid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCustomerGrid;
-        
-        /// <summary>
-        /// CustomerGridView control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView CustomerGridView;
-        
-        /// <summary>
-        /// CustomerGridSqlDataSource control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource CustomerGridSqlDataSource;
         
         /// <summary>
         /// lblIncidents control.
