@@ -63,7 +63,9 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="CustomerID" SortExpression="CustomerID">
                 <EditItemTemplate>
-                    <asp:TextBox ID="txtEditCustomerID" runat="server" Text='<%# Bind("CustomerID") %>'></asp:TextBox>
+                    <asp:DropDownList ID="ddlEditCustomer" runat="server" AutoPostBack="True" DataSourceID="CustomerDDLSqlDataSource" DataTextField="Name" DataValueField="CustomerID" Text='<%# Bind("Name") %>'>
+                    </asp:DropDownList>
+                    <asp:SqlDataSource ID="CustomerEditDDLSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:techSupportDB %>" SelectCommand="SELECT [CustomerID], [Name], [Address], [City], [State], [ZipCode], [Phone], [Email] FROM [Customers]"></asp:SqlDataSource>
                 </EditItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label3" runat="server" Text='<%# Bind("CustomerID") %>'></asp:Label>
@@ -71,31 +73,43 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="ProductCode" SortExpression="ProductCode">
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("ProductCode") %>'></asp:TextBox>
+                    <asp:DropDownList ID="ddlEditProduct" runat="server" AutoPostBack="True" DataSourceID="ProductEditDDLSqlDataSource" DataTextField="Name" DataValueField="ProductCode">
+                    </asp:DropDownList>
+                    <asp:SqlDataSource ID="ProductEditDDLSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:techSupportDB %>" SelectCommand="SELECT [ProductCode], [Name], [Version], [ReleaseDate] FROM [Products]"></asp:SqlDataSource>
                 </EditItemTemplate>
+                <FooterTemplate>
+                    <asp:DropDownList ID="ddlProduct" runat="server" AutoPostBack="True" DataSourceID="ProductDDLSqlDataSource" DataTextField="Name" DataValueField="ProductCode">
+                    </asp:DropDownList>
+                    <asp:SqlDataSource ID="ProductDDLSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:techSupportDB %>" SelectCommand="SELECT [ProductCode], [Name], [ReleaseDate], [Version] FROM [Products]"></asp:SqlDataSource>
+                </FooterTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label4" runat="server" Text='<%# Bind("ProductCode") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="TechID" SortExpression="TechID">
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("TechID") %>'></asp:TextBox>
+                    <asp:DropDownList ID="ddlTechEdit" runat="server" AutoPostBack="True" DataSourceID="TechEditSqlDataSource" DataTextField="Name" DataValueField="TechID">
+                    </asp:DropDownList>
+                    <asp:SqlDataSource ID="TechEditSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:techSupportDB %>" SelectCommand="SELECT [TechID], [Name], [Email], [Phone] FROM [Technicians]"></asp:SqlDataSource>
                 </EditItemTemplate>
+                <FooterTemplate>
+                    <asp:DropDownList ID="ddlTech" runat="server" AutoPostBack="True" DataSourceID="TechSqlDataSource" DataTextField="Name" DataValueField="TechID">
+                    </asp:DropDownList>
+                    <asp:SqlDataSource ID="TechSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:techSupportDB %>" SelectCommand="SELECT [TechID], [Name], [Email], [Phone] FROM [Technicians]"></asp:SqlDataSource>
+                </FooterTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label5" runat="server" Text='<%# Bind("TechID") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="DateOpened" SortExpression="DateOpened">
-                <EditItemTemplate>
-                    <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("DateOpened") %>'></asp:TextBox>
-                </EditItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label6" runat="server" Text='<%# Bind("DateOpened") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="DateClosed" SortExpression="DateClosed">
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("DateClosed") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtEditDateClosed" runat="server" Text='<%# Bind("DateClosed") %>'></asp:TextBox>
+                    <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="txtEditDateClosed" ErrorMessage="Value must be a valid Date." Operator="DataTypeCheck" Type="Date"></asp:CompareValidator>
                 </EditItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label7" runat="server" Text='<%# Bind("DateClosed") %>'></asp:Label>
@@ -103,7 +117,8 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Title" SortExpression="Title">
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("Title") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtEditTitle" runat="server" Text='<%# Bind("Title") %>'></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="EditTitleRequiredFieldValidator" runat="server" ErrorMessage="Title is a required field"></asp:RequiredFieldValidator>
                 </EditItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label8" runat="server" Text='<%# Bind("Title") %>'></asp:Label>
@@ -111,7 +126,8 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Description" SortExpression="Description">
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox7" runat="server" Text='<%# Bind("Description") %>'></asp:TextBox>
+                    <asp:TextBox ID="txtEditDescription" runat="server" Text='<%# Bind("Description") %>'></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="EditDescriptionRequiredFieldValidator" runat="server" ErrorMessage="Description is a required field"></asp:RequiredFieldValidator>
                 </EditItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label9" runat="server" Text='<%# Bind("Description") %>'></asp:Label>
