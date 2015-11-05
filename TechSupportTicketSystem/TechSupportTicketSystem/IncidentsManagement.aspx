@@ -63,7 +63,7 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="CustomerID" SortExpression="CustomerID">
                 <EditItemTemplate>
-                    <asp:DropDownList ID="ddlEditCustomer" runat="server" AutoPostBack="True" DataSourceID="CustomerDDLSqlDataSource" DataTextField="Name" DataValueField="CustomerID" Text='<%# Bind("Name") %>'>
+                    <asp:DropDownList ID="ddlEditCustomer" runat="server" AutoPostBack="True" DataSourceID="CustomerEditDDLSqlDataSource" DataTextField="Name" DataValueField="CustomerID" Text='<%# Bind("CustomerID") %>'>
                     </asp:DropDownList>
                     <asp:SqlDataSource ID="CustomerEditDDLSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:techSupportDB %>" SelectCommand="SELECT [CustomerID], [Name], [Address], [City], [State], [ZipCode], [Phone], [Email] FROM [Customers]"></asp:SqlDataSource>
                 </EditItemTemplate>
@@ -77,11 +77,6 @@
                     </asp:DropDownList>
                     <asp:SqlDataSource ID="ProductEditDDLSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:techSupportDB %>" SelectCommand="SELECT [ProductCode], [Name], [Version], [ReleaseDate] FROM [Products]"></asp:SqlDataSource>
                 </EditItemTemplate>
-                <FooterTemplate>
-                    <asp:DropDownList ID="ddlProduct" runat="server" AutoPostBack="True" DataSourceID="ProductDDLSqlDataSource" DataTextField="Name" DataValueField="ProductCode">
-                    </asp:DropDownList>
-                    <asp:SqlDataSource ID="ProductDDLSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:techSupportDB %>" SelectCommand="SELECT [ProductCode], [Name], [ReleaseDate], [Version] FROM [Products]"></asp:SqlDataSource>
-                </FooterTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label4" runat="server" Text='<%# Bind("ProductCode") %>'></asp:Label>
                 </ItemTemplate>
@@ -92,11 +87,6 @@
                     </asp:DropDownList>
                     <asp:SqlDataSource ID="TechEditSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:techSupportDB %>" SelectCommand="SELECT [TechID], [Name], [Email], [Phone] FROM [Technicians]"></asp:SqlDataSource>
                 </EditItemTemplate>
-                <FooterTemplate>
-                    <asp:DropDownList ID="ddlTech" runat="server" AutoPostBack="True" DataSourceID="TechSqlDataSource" DataTextField="Name" DataValueField="TechID">
-                    </asp:DropDownList>
-                    <asp:SqlDataSource ID="TechSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:techSupportDB %>" SelectCommand="SELECT [TechID], [Name], [Email], [Phone] FROM [Technicians]"></asp:SqlDataSource>
-                </FooterTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label5" runat="server" Text='<%# Bind("TechID") %>'></asp:Label>
                 </ItemTemplate>
