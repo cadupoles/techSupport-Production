@@ -68,35 +68,47 @@ namespace TechSupportTicketSystem
             // create the viewRow object and get the selected row values
             GridViewRow row = IncidentsGridView.SelectedRow;
 
-            // create the incident object
-            App_Code.Incidents incident = new App_Code.Incidents();
-
-            incident.IncidentID = Convert.ToInt32(row.Cells[0].Text);
-            incident.CustomerID = Convert.ToInt32(row.Cells[1].Text);
-            incident.TechID = Convert.ToInt32(row.Cells[2].Text);
-            incident.ProductCode = row.Cells[3].Text;
-            incident.Title = row.Cells[4].Text;
-            incident.Description = row.Cells[5].Text;
-            incident.DateOpened = Convert.ToDateTime(row.Cells[6].Text);
-            
-
-            if (row.Cells[7].Text == string.Empty)
+            if (row == null)
             {
-                incident.DateClosed = DateTime.Today;
+                lblWarningSelection.Text = "You must select an incident for editing.";
             }
+            else
+            {
+
+                lblWarningSelection.Text = string.Empty;
+                // create the incident object
+                App_Code.Incidents incident = new App_Code.Incidents();
+
+                incident.IncidentID = Convert.ToInt32(row.Cells[0].Text);
+                incident.CustomerID = Convert.ToInt32(row.Cells[1].Text);
+                incident.TechID = Convert.ToInt32(row.Cells[2].Text);
+                incident.ProductCode = row.Cells[3].Text;
+                incident.Title = row.Cells[4].Text;
+                incident.Description = row.Cells[5].Text;
+                incident.DateOpened = Convert.ToDateTime(row.Cells[6].Text);
             
-            incident.Status = row.Cells[8].Text;
 
-           
-            //code to set values in obj1
-            Session["Incident"] = incident;  //store object in session variable
+                if (row.Cells[7].Text == string.Empty)
+                {
+                    incident.DateClosed = DateTime.Today;
+                }
+            
+                incident.Status = row.Cells[8].Text;
 
-            Response.Redirect("~/EditIncident.aspx");
+                // forwarding data to EditIncident
+                
+                Session["Incident"] = incident;  //store object in session variable
+
+                Response.Redirect("~/EditIncident.aspx"); // page redirection
+            }
 
         }
 
         protected void btnGetCustomer_Click(object sender, EventArgs e)
         {
+            
+            
+            // lables for gridviews
             
             lblCustomerGrid.Enabled = true;
             lblCustomerGrid.Text = "Customers List";
@@ -105,6 +117,11 @@ namespace TechSupportTicketSystem
             lblIncidents.Text = "Incidents";
 
 
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            lblWarningSelection.Text = string.Empty;
         }
 
     

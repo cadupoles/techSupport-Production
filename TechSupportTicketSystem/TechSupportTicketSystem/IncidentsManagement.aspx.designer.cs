@@ -58,13 +58,13 @@ namespace TechSupportTicketSystem {
         protected global::System.Web.UI.WebControls.TextBox txtCustomerID;
         
         /// <summary>
-        /// btnGetCustomer control.
+        /// btnListIncidents control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGetCustomer;
+        protected global::System.Web.UI.WebControls.Button btnListIncidents;
         
         /// <summary>
         /// CustomerIDRangeValidator control.
@@ -119,6 +119,15 @@ namespace TechSupportTicketSystem {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource IncidentsSqlDataSource;
+        
+        /// <summary>
+        /// lblWarningSelection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblWarningSelection;
         
         /// <summary>
         /// btnAddIncident control.

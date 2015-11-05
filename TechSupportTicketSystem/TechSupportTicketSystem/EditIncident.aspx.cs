@@ -28,6 +28,26 @@ namespace TechSupportTicketSystem
                         return;
                     }
 
+                    if (Session["Incident"] != null)
+                    {
+                        // Get value from Session  variable and cast it to its corresponding type
+                        incident = (App_Code.Incidents)Session["Incident"];
+                    }
+
+                    txtIncidentID.Text = incident.IncidentID.ToString();
+                    txtCustomerID.Text = incident.CustomerID.ToString();
+
+                    ddlProductCode.DataBind();
+                    ddlProductCode.SelectedValue = incident.ProductCode;
+
+                    ddlTech.DataBind();
+                    ddlTech.SelectedValue = incident.TechID.ToString();
+
+                    ddlProductName.DataBind();
+                
+                  
+              
+
                 }
 
             }
@@ -36,26 +56,19 @@ namespace TechSupportTicketSystem
                 throw;
             }
 
-            try
-            {
-
-                if (Session["Incident"] != null)
-                {
-                    // Get value from Session  variable and cast it to its corresponding type
-                    incident = (App_Code.Incidents)Session["Incident"];
-                }
-
-                TextBox1.Text = incident.Description;
-
-
-
-
-            }
-            catch
-            {
-                throw;
-            }
-            
+          
         }
+
+        protected void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+      
     }
 }

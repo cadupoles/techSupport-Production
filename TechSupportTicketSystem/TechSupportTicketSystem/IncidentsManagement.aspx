@@ -15,7 +15,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     
     <asp:Label ID="lblCustomerGrid" runat="server" Font-Size="Large"></asp:Label>
-    <asp:GridView ID="CustomerGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="CustomerID" DataSourceID="CustomerGridSqlDataSource" CellPadding="4" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" AllowPaging="True" AllowSorting="True">
+    <asp:GridView ID="CustomerGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="CustomerID" DataSourceID="CustomerGridSqlDataSource" CellPadding="4" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" AllowPaging="True" AllowSorting="True" HorizontalAlign="Center">
         <Columns>
             <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" InsertVisible="False" ReadOnly="True" SortExpression="CustomerID" />
             <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
@@ -45,7 +45,7 @@
             </td>
             <td class="auto-style5">
                 <asp:TextBox ID="txtCustomerID" runat="server"></asp:TextBox>
-                <asp:Button ID="btnGetCustomer" runat="server" Text="Get Customer" Width="207px" Font-Size="Small" OnClick="btnGetCustomer_Click" />
+                <asp:Button ID="btnListIncidents" runat="server" Text="List Incidents" Width="207px" Font-Size="Small" OnClick="btnGetCustomer_Click" />
                 <br />
                 <asp:RangeValidator ID="CustomerIDRangeValidator" runat="server" ErrorMessage="RangeValidator" ControlToValidate="txtCustomerID" Font-Bold="True" Font-Size="Smaller" ForeColor="Red" MaximumValue="9999" MinimumValue="1000">Customer ID must be between 1000 and 9999</asp:RangeValidator>
                 <br />
@@ -57,7 +57,7 @@
         </tr>
     </table>
     <asp:Label ID="lblIncidents" runat="server" Font-Size="Large"></asp:Label>
-    <asp:GridView ID="IncidentsGridView" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="IncidentID" DataSourceID="IncidentsSqlDataSource" OnSelectedIndexChanged="LinkButton1_Click">
+    <asp:GridView ID="IncidentsGridView" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="IncidentID" DataSourceID="IncidentsSqlDataSource" OnSelectedIndexChanged="LinkButton1_Click" HorizontalAlign="Center">
         <Columns>
             <asp:BoundField DataField="IncidentID" HeaderText="IncidentID" InsertVisible="False" ReadOnly="True" SortExpression="IncidentID" />
             <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" SortExpression="CustomerID" />
@@ -68,7 +68,11 @@
             <asp:BoundField DataField="DateOpened" HeaderText="DateOpened" SortExpression="DateOpened" />
             <asp:BoundField DataField="DateClosed" HeaderText="DateClosed" SortExpression="DateClosed" />
             <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
-            <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
+            <asp:TemplateField ShowHeader="False">
+                <ItemTemplate>
+                    <asp:Button ID="btnSelect" runat="server" CausesValidation="False" CommandName="Select" OnClick="Button1_Click" Text="Select" />
+                </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
         <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
         <HeaderStyle BackColor="#003399" Font-Bold="True" ForeColor="#CCCCFF" />
@@ -126,6 +130,8 @@
                 <asp:Parameter Name="original_Status" Type="String" />
             </UpdateParameters>
         </asp:SqlDataSource>
+    
+    <asp:Label ID="lblWarningSelection" runat="server" Font-Bold="True" Font-Size="Large" ForeColor="Red"></asp:Label>
     
     <br />
     <asp:Button ID="btnAddIncident" runat="server" Text="Add Incident" OnClick="btnAddIncident_Click" />
