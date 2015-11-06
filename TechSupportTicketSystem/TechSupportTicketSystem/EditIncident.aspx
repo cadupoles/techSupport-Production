@@ -30,18 +30,33 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <br />
+    <h2>Edit Incident</h2>
     <table align="center" class="auto-style4">
         <tr>
             <td class="auto-style10">Incident ID<asp:TextBox ID="txtIncidentID" runat="server"></asp:TextBox>
             </td>
             <td class="auto-style12">
-                &nbsp;</td>
+                Status<asp:DropDownList ID="ddlStatus" runat="server" AutoPostBack="True" DataSourceID="StatusSqlDataSource" DataTextField="Status" DataValueField="Status">
+                    <asp:ListItem>Open</asp:ListItem>
+                    <asp:ListItem>On Hold</asp:ListItem>
+                    <asp:ListItem>Closed</asp:ListItem>
+                </asp:DropDownList>
+                <asp:SqlDataSource ID="StatusSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:techSupportDB %>" SelectCommand="SELECT DISTINCT [Status] FROM [Incidents]">
+                </asp:SqlDataSource>
+            </td>
         </tr>
         <tr>
             <td class="auto-style14">Customer ID
                 <asp:TextBox ID="txtCustomerID" runat="server" ReadOnly="True"></asp:TextBox>
             </td>
-            <td class="auto-style15">Customer Name</td>
+            <td class="auto-style15">Customer Name<asp:DropDownList ID="ddlCustName" runat="server" DataSourceID="CustNameSqlDataSource" DataTextField="Name" DataValueField="CustomerID">
+                </asp:DropDownList>
+                <asp:SqlDataSource ID="CustNameSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:techSupportDB %>" SelectCommand="SELECT * FROM [Customers] WHERE ([CustomerID] = @CustomerID)">
+                    <SelectParameters>
+                        <asp:ControlParameter ControlID="txtCustomerID" Name="CustomerID" PropertyName="Text" Type="Int32" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
+            </td>
         </tr>
         <tr>
             <td class="auto-style11">Product Code<asp:DropDownList ID="ddlProductCode" runat="server" DataSourceID="ProductsSqlDataSource" DataTextField="ProductCode" DataValueField="ProductCode"  AutoPostBack="True">
@@ -68,14 +83,16 @@ FROM  Incidents INNER JOIN
             <td class="auto-style13">&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style10">DateOpened <asp:TextBox ID="txtDateOpened" runat="server"></asp:TextBox>
+            <td class="auto-style10">DateOpened <asp:TextBox ID="txtDateOpened" runat="server" ReadOnly="True"></asp:TextBox>
             </td>
             <td class="auto-style12">&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style10">DateClosed<asp:TextBox ID="txtDateClosed" runat="server"></asp:TextBox>
+            <td class="auto-style10">DateClosed<asp:TextBox ID="txtDateClosed" runat="server" Font-Size="Small" ReadOnly="True" Width="314px">Select from Calendar</asp:TextBox>
             </td>
-            <td class="auto-style12">&nbsp;</td>
+            <td class="auto-style12">
+                <asp:Calendar ID="DateClosedCalendar" runat="server" OnSelectionChanged="DateClosedCalendar_SelectionChanged" Width="327px"></asp:Calendar>
+            </td>
         </tr>
         <tr>
             <td class="auto-style10">

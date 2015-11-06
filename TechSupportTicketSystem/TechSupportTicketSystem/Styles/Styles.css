@@ -15,8 +15,13 @@ body {
 
 table {
   padding: 20px;
+    margin-top: 42px;
 }
 
+h2 {
+     text-align: center;
+    
+}
 
 /* the styles for classes */
 

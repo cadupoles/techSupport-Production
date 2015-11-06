@@ -10,7 +10,9 @@ namespace TechSupportTicketSystem
 {
     public partial class IncidentsManagement : System.Web.UI.Page
     {
-        
+
+        // create the incident object
+        App_Code.Incidents incident = new App_Code.Incidents();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -71,13 +73,13 @@ namespace TechSupportTicketSystem
             if (row == null)
             {
                 lblWarningSelection.Text = "You must select an incident for editing.";
+               
             }
             else
             {
 
                 lblWarningSelection.Text = string.Empty;
-                // create the incident object
-                App_Code.Incidents incident = new App_Code.Incidents();
+               
 
                 incident.IncidentID = Convert.ToInt32(row.Cells[0].Text);
                 incident.CustomerID = Convert.ToInt32(row.Cells[1].Text);
@@ -86,27 +88,37 @@ namespace TechSupportTicketSystem
                 incident.Title = row.Cells[4].Text;
                 incident.Description = row.Cells[5].Text;
                 incident.DateOpened = Convert.ToDateTime(row.Cells[6].Text);
-            
-
-                if (row.Cells[7].Text == string.Empty)
-                {
-                    incident.DateClosed = DateTime.Today;
-                }
-            
                 incident.Status = row.Cells[8].Text;
 
-                // forwarding data to EditIncident
                 
-                Session["Incident"] = incident;  //store object in session variable
+            
+                if (row.Cells[7].Text == string.Empty)
+                {
+                    incident.DateClosed = incident.DateOpened;
+                }
 
-                Response.Redirect("~/EditIncident.aspx"); // page redirection
+                string status = incident.Status;
+
+                if (incident.Status == "Closed")
+                {
+                    lblWarningSelection.Text = "This item is closed, please select another incident.";
+                }
+                else
+                {
+                    // forward data to EditIncident
+                    Session["Incident"] = incident;  //store object in session variable
+
+                    Response.Redirect("~/EditIncident.aspx"); // page redirection
+                }
+              
+                
+                
             }
 
         }
 
         protected void btnGetCustomer_Click(object sender, EventArgs e)
         {
-            
             
             // lables for gridviews
             
@@ -122,6 +134,8 @@ namespace TechSupportTicketSystem
         protected void Button1_Click(object sender, EventArgs e)
         {
             lblWarningSelection.Text = string.Empty;
+
+            
         }
 
     

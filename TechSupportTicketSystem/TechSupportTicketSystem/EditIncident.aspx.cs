@@ -36,7 +36,14 @@ namespace TechSupportTicketSystem
 
                     txtIncidentID.Text = incident.IncidentID.ToString();
                     txtCustomerID.Text = incident.CustomerID.ToString();
+                    txtDateOpened.Text = incident.DateOpened.ToShortDateString();
 
+                    if (incident.DateClosed == incident.DateOpened)
+                    {
+                        txtDateClosed.Text = string.Empty;
+                    }
+                   
+                    
                     ddlProductCode.DataBind();
                     ddlProductCode.SelectedValue = incident.ProductCode;
 
@@ -44,6 +51,9 @@ namespace TechSupportTicketSystem
                     ddlTech.SelectedValue = incident.TechID.ToString();
 
                     ddlProductName.DataBind();
+                    ddlCustName.DataBind();
+
+                    ddlStatus.SelectedValue = incident.Status;
                 
                   
               
@@ -67,6 +77,11 @@ namespace TechSupportTicketSystem
         protected void btnCancel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void DateClosedCalendar_SelectionChanged(object sender, EventArgs e)
+        {
+            txtDateClosed.Text = DateClosedCalendar.SelectedDate.ToShortDateString();
         }
 
       
