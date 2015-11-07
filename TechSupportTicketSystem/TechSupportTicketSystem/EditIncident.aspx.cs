@@ -115,8 +115,8 @@ namespace TechSupportTicketSystem
 
             string updateStament = "UPDATE Incidents "
                 + " SET ProductCode = @ProductCode, Title = @Title, Description = @Description, "
-                + "DateOpened = @DateOpened, DateClosed = @DateClosed, TechID = @TechID, Status = @Status "
-                + "WHERE IncidentID = @IncidentID";
+                + "DateOpened = @DateOpened, DateClosed = @DateClosed, Status = @Status "
+                + "WHERE IncidentID = @IncidentID AND TechID = @TechID";
                 
                
 
@@ -130,9 +130,6 @@ namespace TechSupportTicketSystem
             command.Parameters.AddWithValue("@DateOpened", incidentUpdated.DateOpened);
             command.Parameters.AddWithValue("@DateClosed", incidentUpdated.DateClosed);
             command.Parameters.AddWithValue("@Status", incidentUpdated.Status);
-
-
-          
 
 
             connection.Open();
