@@ -52,6 +52,7 @@ namespace TechSupportTicketSystem
                     {
                         txtDateClosed.Text = string.Empty;
                     }
+                    
                    
                     
                     ddlProductCode.DataBind();
@@ -101,10 +102,16 @@ namespace TechSupportTicketSystem
                 incidentUpdated.DateClosed = incident.DateClosed;
 
             }
+            else if ((incidentUpdated.Status == "Open" || incidentUpdated.Status == "On Hold") && txtDateClosed.Text == string.Empty)
+            {
+                // set up minimum value for the DateClosed property
+                incidentUpdated.DateClosed = incident.DateClosed;
+             }
             else
             {
 
                 incidentUpdated.DateClosed = Convert.ToDateTime(txtDateClosed.Text);
+            }
                  try
                 {
                     UpdateIncident(incident, incidentUpdated);
@@ -120,8 +127,6 @@ namespace TechSupportTicketSystem
                 btnCancel.Visible = false;
                 btnUpdate.Visible = false;
                 btnBack.Visible = true;
-            }
-            
             
         }
 
@@ -146,18 +151,8 @@ namespace TechSupportTicketSystem
             command.Parameters.AddWithValue("@Title", incidentUpdated.Title);
             command.Parameters.AddWithValue("@TechID", incidentUpdated.TechID);
             command.Parameters.AddWithValue("@Description", incidentUpdated.Description);
-
-
             command.Parameters.AddWithValue("@DateOpened", incidentUpdated.DateOpened);
-
-            if (incidentUpdated.DateClosed == null)
-            {
-                command.Parameters.AddWithValue("@DateClosed", DBNull.Value);
-            }
-            else
-            {
-                command.Parameters.AddWithValue("@DateClosed", incidentUpdated.DateClosed);
-            }
+            command.Parameters.AddWithValue("@DateClosed", incidentUpdated.DateClosed);
             command.Parameters.AddWithValue("@Status", incidentUpdated.Status);
 
 

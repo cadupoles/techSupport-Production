@@ -62,7 +62,7 @@ namespace TechSupportTicketSystem
 
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
-
+            lblWarningSelection.Text = string.Empty;
         }
 
         protected void btnEditIncident_Click(object sender, EventArgs e)

@@ -65,14 +65,10 @@
             <asp:BoundField DataField="ProductCode" HeaderText="ProductCode" SortExpression="ProductCode" />
             <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
             <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
-            <asp:BoundField DataField="DateOpened" HeaderText="DateOpened" SortExpression="DateOpened" />
-            <asp:BoundField DataField="DateClosed" HeaderText="DateClosed" SortExpression="DateClosed" />
+            <asp:BoundField DataField="DateOpened" HeaderText="DateOpened" SortExpression="DateOpened" DataFormatString="{0:d}" />
+            <asp:BoundField DataField="DateClosed" HeaderText="DateClosed" SortExpression="DateClosed" DataFormatString="{0:d}" />
             <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
-            <asp:TemplateField ShowHeader="False">
-                <ItemTemplate>
-                    <asp:Button ID="btnSelect" runat="server" CausesValidation="False" CommandName="Select" OnClick="Button1_Click" Text="Select" />
-                </ItemTemplate>
-            </asp:TemplateField>
+            <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
         </Columns>
         <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
         <HeaderStyle BackColor="#003399" Font-Bold="True" ForeColor="#CCCCFF" />
@@ -85,50 +81,10 @@
         <SortedDescendingHeaderStyle BackColor="#002876" />
         </asp:GridView>
     
-        <asp:SqlDataSource ID="IncidentsSqlDataSource" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:techSupportDB %>" DeleteCommand="DELETE FROM [Incidents] WHERE [IncidentID] = @original_IncidentID AND [CustomerID] = @original_CustomerID AND [ProductCode] = @original_ProductCode AND (([TechID] = @original_TechID) OR ([TechID] IS NULL AND @original_TechID IS NULL)) AND [DateOpened] = @original_DateOpened AND (([DateClosed] = @original_DateClosed) OR ([DateClosed] IS NULL AND @original_DateClosed IS NULL)) AND [Title] = @original_Title AND [Description] = @original_Description AND (([Status] = @original_Status) OR ([Status] IS NULL AND @original_Status IS NULL))" InsertCommand="INSERT INTO [Incidents] ([CustomerID], [ProductCode], [TechID], [DateOpened], [DateClosed], [Title], [Description], [Status]) VALUES (@CustomerID, @ProductCode, @TechID, @DateOpened, @DateClosed, @Title, @Description, @Status)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT [IncidentID], [CustomerID], [ProductCode], [TechID], [DateOpened], [DateClosed], [Title], [Description], [Status] FROM [Incidents] WHERE ([CustomerID] = @CustomerID)" UpdateCommand="UPDATE [Incidents] SET [CustomerID] = @CustomerID, [ProductCode] = @ProductCode, [TechID] = @TechID, [DateOpened] = @DateOpened, [DateClosed] = @DateClosed, [Title] = @Title, [Description] = @Description, [Status] = @Status WHERE [IncidentID] = @original_IncidentID AND [CustomerID] = @original_CustomerID AND [ProductCode] = @original_ProductCode AND (([TechID] = @original_TechID) OR ([TechID] IS NULL AND @original_TechID IS NULL)) AND [DateOpened] = @original_DateOpened AND (([DateClosed] = @original_DateClosed) OR ([DateClosed] IS NULL AND @original_DateClosed IS NULL)) AND [Title] = @original_Title AND [Description] = @original_Description AND (([Status] = @original_Status) OR ([Status] IS NULL AND @original_Status IS NULL))">
-            <DeleteParameters>
-                <asp:Parameter Name="original_IncidentID" Type="Int32" />
-                <asp:Parameter Name="original_CustomerID" Type="Int32" />
-                <asp:Parameter Name="original_ProductCode" Type="String" />
-                <asp:Parameter Name="original_TechID" Type="Int32" />
-                <asp:Parameter Name="original_DateOpened" Type="DateTime" />
-                <asp:Parameter Name="original_DateClosed" Type="DateTime" />
-                <asp:Parameter Name="original_Title" Type="String" />
-                <asp:Parameter Name="original_Description" Type="String" />
-                <asp:Parameter Name="original_Status" Type="String" />
-            </DeleteParameters>
-            <InsertParameters>
-                <asp:Parameter Name="CustomerID" Type="Int32" />
-                <asp:Parameter Name="ProductCode" Type="String" />
-                <asp:Parameter Name="TechID" Type="Int32" />
-                <asp:Parameter Name="DateOpened" Type="DateTime" />
-                <asp:Parameter Name="DateClosed" Type="DateTime" />
-                <asp:Parameter Name="Title" Type="String" />
-                <asp:Parameter Name="Description" Type="String" />
-                <asp:Parameter Name="Status" Type="String" />
-            </InsertParameters>
+        <asp:SqlDataSource ID="IncidentsSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:techSupportDB %>" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Incidents] WHERE ([CustomerID] = @CustomerID)">
             <SelectParameters>
                 <asp:ControlParameter ControlID="txtCustomerID" Name="CustomerID" PropertyName="Text" Type="Int32" />
             </SelectParameters>
-            <UpdateParameters>
-                <asp:Parameter Name="CustomerID" Type="Int32" />
-                <asp:Parameter Name="ProductCode" Type="String" />
-                <asp:Parameter Name="TechID" Type="Int32" />
-                <asp:Parameter Name="DateOpened" Type="DateTime" />
-                <asp:Parameter Name="DateClosed" Type="DateTime" />
-                <asp:Parameter Name="Title" Type="String" />
-                <asp:Parameter Name="Description" Type="String" />
-                <asp:Parameter Name="Status" Type="String" />
-                <asp:Parameter Name="original_IncidentID" Type="Int32" />
-                <asp:Parameter Name="original_CustomerID" Type="Int32" />
-                <asp:Parameter Name="original_ProductCode" Type="String" />
-                <asp:Parameter Name="original_TechID" Type="Int32" />
-                <asp:Parameter Name="original_DateOpened" Type="DateTime" />
-                <asp:Parameter Name="original_DateClosed" Type="DateTime" />
-                <asp:Parameter Name="original_Title" Type="String" />
-                <asp:Parameter Name="original_Description" Type="String" />
-                <asp:Parameter Name="original_Status" Type="String" />
-            </UpdateParameters>
         </asp:SqlDataSource>
     
     <asp:Label ID="lblWarningSelection" runat="server" Font-Bold="True" Font-Size="Large" ForeColor="Red"></asp:Label>
