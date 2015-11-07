@@ -64,6 +64,8 @@ namespace TechSupportTicketSystem
 
                     ddlStatus.SelectedValue = incident.Status;
 
+                    DateClosedCalendar.SelectedDate = DateTime.Today;
+
                     btnBack.Visible = false;
               
 
@@ -156,9 +158,8 @@ namespace TechSupportTicketSystem
 
         protected void DateClosedCalendar_SelectionChanged(object sender, EventArgs e)
         {
-            txtDateClosed.Text = DateClosedCalendar.SelectedDate.ToShortDateString();
-            txtDateClosed.BackColor = Color.Aquamarine;
-            txtDateClosed.Font.Bold = true;
+           
+            
         }
 
         protected void txtDateClosed_TextChanged(object sender, EventArgs e)
@@ -174,6 +175,14 @@ namespace TechSupportTicketSystem
                 Response.Redirect(ViewState["PreviousPage"].ToString());//Redirect to 
                 //Previous page by retrieving the PreviousPage Url from ViewState.
             }
+        }
+
+        protected void DateClosedCalendar_SelectionChanged1(object sender, EventArgs e)
+        {
+
+            txtDateClosed.Text = DateClosedCalendar.SelectedDate.ToShortDateString();
+            txtDateClosed.BackColor = Color.Aquamarine;
+            txtDateClosed.Font.Bold = true;
         }
 
       
