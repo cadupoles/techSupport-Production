@@ -66,7 +66,7 @@ namespace TechSupportTicketSystem
                     ddlStatus.SelectedValue = incident.Status;
 
                     DateClosedCalendar.SelectedDate = DateTime.Today;
-                    txtDateClosed.Text = DateClosedCalendar.SelectedDate.ToShortDateString();
+                    
 
                     btnBack.Visible = false;
               
@@ -90,27 +90,38 @@ namespace TechSupportTicketSystem
             incidentUpdated.ProductCode = ddlProductCode.SelectedValue.ToString();
             incidentUpdated.Title = txtTitle.Text;
             incidentUpdated.Description = txtDescription.Text;
-            incidentUpdated.DateClosed = Convert.ToDateTime(txtDateClosed.Text);
+            incidentUpdated.TechID = Convert.ToInt32(ddlTech.SelectedValue);
             incidentUpdated.DateOpened = Convert.ToDateTime(txtDateOpened.Text);
             incidentUpdated.Status = ddlStatus.SelectedValue;
-            incidentUpdated.TechID = Convert.ToInt32(ddlTech.SelectedValue);
-            
+            incidentUpdated.DateClosed = incident.DateClosed;
 
-            try
+            if (incidentUpdated.Status == "Closed" && txtDateClosed.Text == string.Empty)
             {
-                UpdateIncident(incident, incidentUpdated);
+                lblConfirmation.Text = "Please select a closing Date from the Calendar.";
+                incidentUpdated.DateClosed = incident.DateClosed;
+
             }
-            catch
+            else
             {
-                throw;
+
+                incidentUpdated.DateClosed = Convert.ToDateTime(txtDateClosed.Text);
+                 try
+                {
+                    UpdateIncident(incident, incidentUpdated);
+                }
+                catch
+                {
+                    throw;
+                }
+
+                // confirmation message and disabling buttons.
+
+                lblConfirmation.Text = "Incident was sucessfully updated.";
+                btnCancel.Visible = false;
+                btnUpdate.Visible = false;
+                btnBack.Visible = true;
             }
             
-            // confirmation message and disabling buttons.
-           
-            lblConfirmation.Text = "Incident was sucessfully updated.";
-            btnCancel.Visible = false;
-            btnUpdate.Visible = false;
-            btnBack.Visible = true;
             
         }
 
@@ -128,13 +139,25 @@ namespace TechSupportTicketSystem
 
             SqlCommand command = new SqlCommand(updateStament, connection);
 
+
+
           
             command.Parameters.AddWithValue("@ProductCode", incidentUpdated.ProductCode);
             command.Parameters.AddWithValue("@Title", incidentUpdated.Title);
             command.Parameters.AddWithValue("@TechID", incidentUpdated.TechID);
             command.Parameters.AddWithValue("@Description", incidentUpdated.Description);
+
+
             command.Parameters.AddWithValue("@DateOpened", incidentUpdated.DateOpened);
-            command.Parameters.AddWithValue("@DateClosed", incidentUpdated.DateClosed);
+
+            if (incidentUpdated.DateClosed == null)
+            {
+                command.Parameters.AddWithValue("@DateClosed", DBNull.Value);
+            }
+            else
+            {
+                command.Parameters.AddWithValue("@DateClosed", incidentUpdated.DateClosed);
+            }
             command.Parameters.AddWithValue("@Status", incidentUpdated.Status);
 
 

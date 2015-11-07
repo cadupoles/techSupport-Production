@@ -97,7 +97,7 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style10">DateClosed<asp:TextBox ID="txtDateClosed" runat="server" Font-Size="Small" ReadOnly="True" Width="314px" OnTextChanged="txtDateClosed_TextChanged" AutoPostBack="True"></asp:TextBox>
+            <td class="auto-style10">DateClosed<asp:TextBox ID="txtDateClosed" runat="server" Font-Size="Small" Width="314px" OnTextChanged="txtDateClosed_TextChanged" AutoPostBack="True"></asp:TextBox>
             </td>
             <td class="auto-style12">
                 <asp:Calendar ID="DateClosedCalendar" runat="server" OnSelectionChanged="DateClosedCalendar_SelectionChanged1">
