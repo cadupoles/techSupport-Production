@@ -121,6 +121,15 @@ namespace TechSupportTicketSystem {
         protected global::System.Web.UI.WebControls.SqlDataSource TechSqlDataSource;
         
         /// <summary>
+        /// txtTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTitle;
+        
+        /// <summary>
         /// txtDateOpened control.
         /// </summary>
         /// <remarks>
@@ -128,6 +137,15 @@ namespace TechSupportTicketSystem {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDateOpened;
+        
+        /// <summary>
+        /// txtDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDescription;
         
         /// <summary>
         /// txtDateClosed control.
@@ -157,6 +175,15 @@ namespace TechSupportTicketSystem {
         protected global::System.Web.UI.WebControls.Button btnUpdate;
         
         /// <summary>
+        /// btnBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBack;
+        
+        /// <summary>
         /// btnCancel control.
         /// </summary>
         /// <remarks>
@@ -164,5 +191,14 @@ namespace TechSupportTicketSystem {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancel;
+        
+        /// <summary>
+        /// lblConfirmation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblConfirmation;
     }
 }

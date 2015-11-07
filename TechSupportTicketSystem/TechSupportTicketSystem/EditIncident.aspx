@@ -26,6 +26,14 @@
             width: 461px;
             height: 47px;
         }
+        .auto-style16 {
+            width: 439px;
+            height: 96px;
+        }
+        .auto-style17 {
+            width: 461px;
+            height: 96px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -80,15 +88,19 @@ FROM  Incidents INNER JOIN
          Technicians ON Incidents.TechID = Technicians.TechID ORDER BY Technicians.Name">
                 </asp:SqlDataSource>
             </td>
-            <td class="auto-style13">&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style10">DateOpened <asp:TextBox ID="txtDateOpened" runat="server" ReadOnly="True"></asp:TextBox>
+            <td class="auto-style13">Title
+                <asp:TextBox ID="txtTitle" runat="server" Width="455px"></asp:TextBox>
             </td>
-            <td class="auto-style12">&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style10">DateClosed<asp:TextBox ID="txtDateClosed" runat="server" Font-Size="Small" ReadOnly="True" Width="314px">Select from Calendar</asp:TextBox>
+            <td class="auto-style16">DateOpened <asp:TextBox ID="txtDateOpened" runat="server" ReadOnly="True"></asp:TextBox>
+            </td>
+            <td class="auto-style17">Description
+                <asp:TextBox ID="txtDescription" runat="server" Height="110px" TextMode="MultiLine" Width="501px"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style10">DateClosed<asp:TextBox ID="txtDateClosed" runat="server" Font-Size="Small" ReadOnly="True" Width="314px" OnTextChanged="txtDateClosed_TextChanged" AutoPostBack="True">Select from Calendar</asp:TextBox>
             </td>
             <td class="auto-style12">
                 <asp:Calendar ID="DateClosedCalendar" runat="server" OnSelectionChanged="DateClosedCalendar_SelectionChanged" Width="327px"></asp:Calendar>
@@ -97,13 +109,16 @@ FROM  Incidents INNER JOIN
         <tr>
             <td class="auto-style10">
                 <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Update" />
+                <asp:Button ID="btnBack" runat="server" Text="Back To Incidents" OnClick="btnBack_Click" />
             </td>
             <td class="auto-style12">
                 <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" Text="Cancel" />
             </td>
         </tr>
         <tr>
-            <td class="auto-style10">&nbsp;</td>
+            <td class="auto-style10">
+                <asp:Label ID="lblConfirmation" runat="server" Font-Bold="True" ForeColor="Blue"></asp:Label>
+            </td>
             <td class="auto-style12">&nbsp;</td>
         </tr>
     </table>
