@@ -15,6 +15,7 @@ namespace TechSupportTicketSystem
     {
         App_Code.Incidents incident =  new App_Code.Incidents();
         App_Code.Incidents incidentUpdated = new App_Code.Incidents();
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -65,6 +66,7 @@ namespace TechSupportTicketSystem
                     ddlStatus.SelectedValue = incident.Status;
 
                     DateClosedCalendar.SelectedDate = DateTime.Today;
+                    txtDateClosed.Text = DateClosedCalendar.SelectedDate.ToShortDateString();
 
                     btnBack.Visible = false;
               
@@ -83,8 +85,8 @@ namespace TechSupportTicketSystem
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
 
-
-            
+            // build the new object from form controls
+            incidentUpdated.IncidentID = Convert.ToInt32(txtIncidentID.Text);
             incidentUpdated.ProductCode = ddlProductCode.SelectedValue.ToString();
             incidentUpdated.Title = txtTitle.Text;
             incidentUpdated.Description = txtDescription.Text;
@@ -92,6 +94,7 @@ namespace TechSupportTicketSystem
             incidentUpdated.DateOpened = Convert.ToDateTime(txtDateOpened.Text);
             incidentUpdated.Status = ddlStatus.SelectedValue;
             incidentUpdated.TechID = Convert.ToInt32(ddlTech.SelectedValue);
+            
 
             try
             {
@@ -102,6 +105,7 @@ namespace TechSupportTicketSystem
                 throw;
             }
             
+            // confirmation message and disabling buttons.
            
             lblConfirmation.Text = "Incident was sucessfully updated.";
             btnCancel.Visible = false;
@@ -116,15 +120,15 @@ namespace TechSupportTicketSystem
             SqlConnection connection = new SqlConnection(GetConnectionString());
 
             string updateStament = "UPDATE Incidents "
-                + " SET ProductCode = @ProductCode, Title = @Title, Description = @Description, "
+                + " SET ProductCode = @ProductCode, Title = @Title, TechID = @TechID, Description = @Description, "
                 + "DateOpened = @DateOpened, DateClosed = @DateClosed, Status = @Status "
-                + "WHERE IncidentID = @IncidentID AND TechID = @TechID";
+                + "WHERE IncidentID = " + incidentUpdated.IncidentID;
                 
                
 
             SqlCommand command = new SqlCommand(updateStament, connection);
 
-            command.Parameters.AddWithValue("@IncidentID", incidentUpdated.IncidentID);
+          
             command.Parameters.AddWithValue("@ProductCode", incidentUpdated.ProductCode);
             command.Parameters.AddWithValue("@Title", incidentUpdated.Title);
             command.Parameters.AddWithValue("@TechID", incidentUpdated.TechID);

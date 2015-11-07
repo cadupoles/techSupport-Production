@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="EditIncident.aspx.cs" Inherits="TechSupportTicketSystem.EditIncident" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" ValidateRequest="false" AutoEventWireup="true" CodeBehind="EditIncident.aspx.cs" Inherits="TechSupportTicketSystem.EditIncident" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .auto-style4 {
@@ -49,8 +49,7 @@
                     <asp:ListItem>On Hold</asp:ListItem>
                     <asp:ListItem>Closed</asp:ListItem>
                 </asp:DropDownList>
-                <asp:SqlDataSource ID="StatusSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:techSupportDB %>" SelectCommand="SELECT DISTINCT [Status] FROM [Incidents]">
-                </asp:SqlDataSource>
+                <asp:SqlDataSource ID="StatusSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:techSupportDB %>" SelectCommand="SELECT DISTINCT [Status] FROM [Incidents]"></asp:SqlDataSource>
             </td>
         </tr>
         <tr>
@@ -98,7 +97,7 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style10">DateClosed<asp:TextBox ID="txtDateClosed" runat="server" Font-Size="Small" ReadOnly="True" Width="314px" OnTextChanged="txtDateClosed_TextChanged" AutoPostBack="True">Select from Calendar</asp:TextBox>
+            <td class="auto-style10">DateClosed<asp:TextBox ID="txtDateClosed" runat="server" Font-Size="Small" ReadOnly="True" Width="314px" OnTextChanged="txtDateClosed_TextChanged" AutoPostBack="True"></asp:TextBox>
             </td>
             <td class="auto-style12">
                 <asp:Calendar ID="DateClosedCalendar" runat="server" OnSelectionChanged="DateClosedCalendar_SelectionChanged1">
