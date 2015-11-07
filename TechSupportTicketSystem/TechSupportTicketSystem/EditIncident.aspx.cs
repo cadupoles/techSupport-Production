@@ -108,7 +108,7 @@ namespace TechSupportTicketSystem
             
         }
 
-        private static int UpdateIncident(App_Code.Incidents incident, App_Code.Incidents incidentUpdated)
+        private static int UpdateIncident (App_Code.Incidents incident, App_Code.Incidents incidentUpdated)
         {
 
             SqlConnection connection = new SqlConnection(GetConnectionString());
@@ -122,7 +122,7 @@ namespace TechSupportTicketSystem
 
             SqlCommand command = new SqlCommand(updateStament, connection);
 
-            
+            command.Parameters.AddWithValue("@IncidentID", incidentUpdated.IncidentID);
             command.Parameters.AddWithValue("@ProductCode", incidentUpdated.ProductCode);
             command.Parameters.AddWithValue("@Title", incidentUpdated.Title);
             command.Parameters.AddWithValue("@TechID", incidentUpdated.TechID);

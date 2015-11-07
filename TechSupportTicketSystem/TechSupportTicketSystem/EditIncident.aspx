@@ -83,9 +83,7 @@
         <tr>
             <td class="auto-style11">Tech Name<asp:DropDownList ID="ddlTech" runat="server" AutoPostBack="True" DataSourceID="TechSqlDataSource" DataTextField="Name" DataValueField="TechID">
                 </asp:DropDownList>
-                <asp:SqlDataSource ID="TechSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:techSupportDB %>" SelectCommand="SELECT DISTINCT Technicians.Name, Incidents.TechID
-FROM  Incidents INNER JOIN
-         Technicians ON Incidents.TechID = Technicians.TechID ORDER BY Technicians.Name">
+                <asp:SqlDataSource ID="TechSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:techSupportDB %>" SelectCommand="SELECT [TechID], [Name], [Email], [Phone] FROM [Technicians]">
                 </asp:SqlDataSource>
             </td>
             <td class="auto-style13">Title
