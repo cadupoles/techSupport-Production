@@ -104,15 +104,22 @@ namespace TechSupportTicketSystem
             }
             else if ((incidentUpdated.Status == "Open" || incidentUpdated.Status == "On Hold") && txtDateClosed.Text == string.Empty)
             {
-                // set up minimum value for the DateClosed property
-                incidentUpdated.DateClosed = incident.DateClosed;
+                // call the method that do not update the Date Closed if empty
+                UpdateIncidentNoDateClosed(incident, incidentUpdated);
+
+                // confirmation message and disabling buttons.
+
+                lblConfirmation.Text = "Incident was sucessfully updated.";
+                btnCancel.Visible = false;
+                btnUpdate.Visible = false;
+                btnBack.Visible = true;
              }
             else
             {
 
                 incidentUpdated.DateClosed = Convert.ToDateTime(txtDateClosed.Text);
-            }
-                 try
+
+                try
                 {
                     UpdateIncident(incident, incidentUpdated);
                 }
@@ -127,6 +134,8 @@ namespace TechSupportTicketSystem
                 btnCancel.Visible = false;
                 btnUpdate.Visible = false;
                 btnBack.Visible = true;
+            }
+                
             
         }
 
@@ -161,6 +170,39 @@ namespace TechSupportTicketSystem
             connection.Close();
             return updateCount;
             
+        }
+
+        private static int UpdateIncidentNoDateClosed(App_Code.Incidents incident, App_Code.Incidents incidentUpdated)
+        {
+
+            SqlConnection connection = new SqlConnection(GetConnectionString());
+
+            string updateStament = "UPDATE Incidents "
+                + " SET ProductCode = @ProductCode, Title = @Title, TechID = @TechID, Description = @Description, "
+                + "DateOpened = @DateOpened, Status = @Status "
+                + "WHERE IncidentID = " + incidentUpdated.IncidentID;
+
+
+
+            SqlCommand command = new SqlCommand(updateStament, connection);
+
+
+
+
+            command.Parameters.AddWithValue("@ProductCode", incidentUpdated.ProductCode);
+            command.Parameters.AddWithValue("@Title", incidentUpdated.Title);
+            command.Parameters.AddWithValue("@TechID", incidentUpdated.TechID);
+            command.Parameters.AddWithValue("@Description", incidentUpdated.Description);
+            command.Parameters.AddWithValue("@DateOpened", incidentUpdated.DateOpened);
+            
+            command.Parameters.AddWithValue("@Status", incidentUpdated.Status);
+
+
+            connection.Open();
+            int updateCount = command.ExecuteNonQuery();
+            connection.Close();
+            return updateCount;
+
         }
 
         private static string GetConnectionString()

@@ -125,12 +125,13 @@ namespace TechSupportTicketSystem
             string productCode = ddlProduct.SelectedValue.Trim();
             string incTitle = Convert.ToString(txtBoxTitle.Text).Trim();
             string incDescription = Convert.ToString(txtBoxDescription.Text).Trim();
+            string status = ddlStatus.SelectedValue.ToString();
 
             try
             {
                 // Open connection with Database and insert data into Incidents table
                 connection.Open();
-                insertStatement = "INSERT INTO Incidents (CustomerID,ProductCode,TechID,DateOpened,Title,Description) VALUES ('" + custID + "','" + productCode + "','" + techID + "','" + dateTime.ToString("yyyy-MM-dd HH:mm:ss") + "','" + incTitle + "','" + incDescription + "')";
+                insertStatement = "INSERT INTO Incidents (CustomerID,ProductCode,TechID,DateOpened,Title,Description, Status) VALUES ('" + custID + "','" + productCode + "','" + techID + "','" + dateTime.ToString("yyyy-MM-dd HH:mm:ss") + "','" + incTitle + "','" + incDescription + "','" + status + "')";
 
                 SqlCommand insertCommand = new SqlCommand(insertStatement, connection);
                 insertCommand.ExecuteNonQuery();

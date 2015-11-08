@@ -118,7 +118,10 @@
                     <asp:DropDownList ID="ddlProduct" runat="server" OnSelectedIndexChanged="ddlProduct_SelectedIndexChanged" Width="200px" AutoPostBack="True">
                     </asp:DropDownList>
                 </td>
-                <td></td>
+                <td>Status<asp:DropDownList ID="ddlStatus" runat="server">
+                    <asp:ListItem>Open</asp:ListItem>
+                    </asp:DropDownList>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style2">
