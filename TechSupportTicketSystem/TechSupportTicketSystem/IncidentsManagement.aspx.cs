@@ -44,11 +44,16 @@ namespace TechSupportTicketSystem
                         loggedUser = user;
                     }
                 }
+
+                
             }
             catch 
             {
                 throw;
             }
+
+            
+
 
             lblCustomerGrid.Enabled = false;
             lblIncidents.Enabled = false;
