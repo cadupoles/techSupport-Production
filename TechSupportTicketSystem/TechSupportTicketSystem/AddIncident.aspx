@@ -1,12 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="AddIncident.aspx.cs" Inherits="TechSupportTicketSystem.AddIncident" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-   
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"> 
+    
+    <link href="Styles/Styles.css" rel="stylesheet" type="text/css" />
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
- 
-    <link href="Styles/Styles.css" rel="stylesheet" />
-
-    <style type="text/css">
+    
+    
+    
+    <style>
         .auto-style1 {
             width: 100%;
         }
@@ -45,7 +48,7 @@
         }
     </style>
     
-    <h1 id="header_center">Add Incident Page</h1>
+    <h1 id="header_center">New Customer Incident</h1>
 
     <div class="addIncident_page">
     
@@ -63,7 +66,8 @@
             <tr>
                 <td class="auto-style6"></td>
                 <td class="auto-style7">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" BorderColor="Red" BorderStyle="Solid" ControlToValidate="txtBoxCustomerID1" ErrorMessage="* required field" ForeColor="#FF3300"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="CustomerIDValidator" runat="server" BorderColor="Red" BorderStyle="Solid" ControlToValidate="txtBoxCustomerID1" ErrorMessage="* required field" ForeColor="#FF3300"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" BorderColor="Red" BorderStyle="Solid" ControlToValidate="txtBoxCustomerID1" ErrorMessage="* the input should be a numeric value" ForeColor="Red" ValidationExpression="^[0-9]+$"></asp:RegularExpressionValidator>
                 </td>
                 <td></td>
             </tr>
@@ -130,7 +134,9 @@
                 <td class="auto-style3">
                     <asp:TextBox ID="txtBoxTitle" runat="server" Width="340px"></asp:TextBox>
                 </td>
-                <td></td>
+                <td>
+                    <asp:RequiredFieldValidator ID="TitleValidator" runat="server" BorderColor="Red" BorderStyle="Solid" ControlToValidate="txtBoxTitle" ErrorMessage="* required field" ForeColor="Red"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style2">

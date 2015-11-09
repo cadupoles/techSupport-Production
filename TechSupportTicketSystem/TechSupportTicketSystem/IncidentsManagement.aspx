@@ -61,14 +61,13 @@
         <Columns>
             <asp:BoundField DataField="IncidentID" HeaderText="IncidentID" InsertVisible="False" ReadOnly="True" SortExpression="IncidentID" />
             <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" SortExpression="CustomerID" />
-            <asp:BoundField DataField="TechID" HeaderText="TechID" SortExpression="TechID" />
             <asp:BoundField DataField="ProductCode" HeaderText="ProductCode" SortExpression="ProductCode" />
+            <asp:BoundField DataField="TechID" HeaderText="TechID" SortExpression="TechID" />
+            <asp:BoundField DataField="DateOpened" HeaderText="DateOpened" SortExpression="DateOpened" />
+            <asp:BoundField DataField="DateClosed" HeaderText="DateClosed" SortExpression="DateClosed" />
             <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
             <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
-            <asp:BoundField DataField="DateOpened" HeaderText="DateOpened" SortExpression="DateOpened" DataFormatString="{0:d}" />
-            <asp:BoundField DataField="DateClosed" HeaderText="DateClosed" SortExpression="DateClosed" DataFormatString="{0:d}" />
             <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="Status" />
-            <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
         </Columns>
         <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
         <HeaderStyle BackColor="#003399" Font-Bold="True" ForeColor="#CCCCFF" />

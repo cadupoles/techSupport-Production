@@ -13,5 +13,15 @@ namespace TechSupportTicketSystem
         {
 
         }
+
+        protected void MasterLoginStatus_LoggedOut(object sender, EventArgs e)
+        {
+            Session.Abandon();
+        }
+
+        protected void MasterLoginStatus_LoggingOut(object sender, LoginCancelEventArgs e)
+        {
+            Response.Redirect("Default.aspx");
+        }
     }
 }

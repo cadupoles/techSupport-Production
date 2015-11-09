@@ -6,6 +6,6 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="MainContent" runat="server">
 
              <%--Element control for autorisation--%>
-        <asp:Login ID="Login1" runat="server"></asp:Login> 
+        <asp:Login ID="Login1" runat="server" OnLoggedIn="Login1_LoggedIn"></asp:Login> 
     
 </asp:Content>

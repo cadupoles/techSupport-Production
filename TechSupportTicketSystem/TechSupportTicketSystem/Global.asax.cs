@@ -33,7 +33,7 @@ namespace TechSupportTicketSystem
 
             Session["mydata"] = 0;
 
-            //Code taht loads the Application object
+            //Code that loads the Application object
             Application.Lock();
             Application["userCount"] = (int)Application["userCount"] + 1;
             Application.UnLock();

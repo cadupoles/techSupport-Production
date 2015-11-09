@@ -13,5 +13,10 @@ namespace TechSupportTicketSystem.Account
         {
 
         }
+
+        protected void Login1_LoggedIn(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Default.aspx");
+        }
     }
 }

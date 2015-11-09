@@ -13,11 +13,11 @@
 
     <siteMapNode url="Default.aspx" title="Home" decsription="" roles="*" > 
   
-    <siteMapNode url="CustomerIncidents.aspx" title="Customer Incidents" description="" roles="admin" />
+    <siteMapNode url="TechnicianView.aspx" title="Technician View" description="" roles="admin, technician" />
     
-    <siteMapNode url="~/ProductsManagement.aspx" title="Product Maintenance" description="" roles="support, admin" />
+    <siteMapNode url="ProductsManagement.aspx" title="Product Maintanence" description="" roles="support, admin" />
 
-    <siteMapNode url="TechnicianMaintenance.aspx" title="Technician Maintenance" description="" roles="technician, admin" />
+    <siteMapNode url="TechnicianMaintanence.aspx" title="Technician Maintenance" description="" roles="technician, admin" />
 
     <siteMapNode url="AddRegistration.aspx" title="Add Registration" decsription="" roles="admin" />
 

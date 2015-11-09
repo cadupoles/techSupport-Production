@@ -4,6 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
+        
+   
     <title>Technical Support</title>
     <style>
         h1 {
@@ -19,13 +21,17 @@
     </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <link href="Styles/Styles.css" rel="stylesheet" />
+    
+    <link href="Styles/Styles.css" rel="stylesheet" type="text/css" />
+    
 </head>
 
 <body>
     <form id="form2" runat="server">
 
         <div class="menu">
+            <h1>
+                &nbsp;</h1>
             <h1>
                 <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
             </h1>
@@ -38,7 +44,7 @@
             Hi,
                 <asp:LoginView ID="MasterLoginView" runat="server">
                     <AnonymousTemplate>
-                        Guest [<asp:LoginStatus ID="MasterLoginStatus" runat="server" />
+                        Guest [<asp:LoginStatus ID="MasterLoginStatus" runat="server" OnLoggedOut="MasterLoginStatus_LoggedOut" OnLoggingOut="MasterLoginStatus_LoggingOut" />
                         ]/[<a href="/Account/Register.aspx">Registration</a>]
                     </AnonymousTemplate>
                     <LoggedInTemplate>

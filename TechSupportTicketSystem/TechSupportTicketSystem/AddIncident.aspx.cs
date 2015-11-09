@@ -118,7 +118,7 @@ namespace TechSupportTicketSystem
             string insertStatement;
             DateTime dateTime;
 
-            int custID = Int32.Parse(txtBoxCustomerID2.Text);
+            int custID = Int32.Parse(txtBoxCustomerID1.Text);
             string custName = Convert.ToString(txtBoxName.Text).Trim();
             int techID = Convert.ToInt32(ddlTechnicians.SelectedValue);
             dateTime = Convert.ToDateTime(txtBoxDateOpened.Text);
