@@ -47,41 +47,7 @@ namespace TechSupportTicketSystem
             }
         }
 
-        protected void btnInsert_Click(object sender, EventArgs e)
-        {
-
-
-            TextBox txtproductCode = (TextBox)ProductsGridView.FooterRow.FindControl("txtProductCode");
-            TextBox txtName = (TextBox) ProductsGridView.FooterRow.FindControl("txtName");
-            TextBox txtVersion = (TextBox)ProductsGridView.FooterRow.FindControl("txtVersion");
-            TextBox txtReleaseDate = (TextBox)ProductsGridView.FooterRow.FindControl("txtReleaseDate");
-
-            productCode = txtproductCode.Text;           
-            name = txtName.Text;            
-            version = Convert.ToDecimal(txtVersion.Text);
-            releaseDate = Convert.ToDateTime(txtReleaseDate.Text);
-
-            string insertStatement = 
-                                 "INSERT INTO Products (ProductCode, Name, Version, ReleaseDate) "
-                                + "VALUES (@ProductCode, @Name, @Version, @ReleaseDate) ";
-                                
-
-            SqlConnection connection = new SqlConnection(GetConnectionString());
-
-            SqlCommand command = new SqlCommand(insertStatement, connection);
-
-            command.Parameters.AddWithValue("@ProductCode", productCode);
-            command.Parameters.AddWithValue("@Name", name);
-            command.Parameters.AddWithValue("@Version", version);
-            command.Parameters.AddWithValue("@ReleaseDate", releaseDate);
-
-            connection.Open();
-            command.ExecuteNonQuery();
-
-            ProductsGridView.DataBind();
-
-
-        }
+      
 
         private class Product
         {
@@ -128,6 +94,39 @@ namespace TechSupportTicketSystem
         private static string GetConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["techSupportDB"].ConnectionString;
+        }
+
+       
+        protected void btnInsert_Click(object sender, EventArgs e)
+        {
+            TextBox txtproductCode = (TextBox)ProductsGridView.FooterRow.FindControl("txtProductCode");
+            TextBox txtName = (TextBox)ProductsGridView.FooterRow.FindControl("txtName");
+            TextBox txtVersion = (TextBox)ProductsGridView.FooterRow.FindControl("txtVersion");
+            TextBox txtReleaseDate = (TextBox)ProductsGridView.FooterRow.FindControl("txtReleaseDate");
+
+            productCode = txtproductCode.Text;
+            name = txtName.Text;
+            version = Convert.ToDecimal(txtVersion.Text);
+            releaseDate = Convert.ToDateTime(txtReleaseDate.Text);
+
+            string insertStatement =
+                                 "INSERT INTO Products (ProductCode, Name, Version, ReleaseDate) "
+                                + "VALUES (@ProductCode, @Name, @Version, @ReleaseDate) ";
+
+
+            SqlConnection connection = new SqlConnection(GetConnectionString());
+
+            SqlCommand command = new SqlCommand(insertStatement, connection);
+
+            command.Parameters.AddWithValue("@ProductCode", productCode);
+            command.Parameters.AddWithValue("@Name", name);
+            command.Parameters.AddWithValue("@Version", version);
+            command.Parameters.AddWithValue("@ReleaseDate", releaseDate);
+
+            connection.Open();
+            command.ExecuteNonQuery();
+
+            ProductsGridView.DataBind();
         }
         
     }

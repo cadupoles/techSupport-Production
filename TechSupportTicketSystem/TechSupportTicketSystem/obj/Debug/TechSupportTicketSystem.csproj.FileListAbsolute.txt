@@ -15,6 +15,6 @@ C:\Users\cadupoles\Documents\Visual Studio 2012\GitHub\TechSupportTicketSystem\T
 C:\Users\cadupoles\Documents\Visual Studio 2012\GitHub\TechSupportTicketSystem\TechSupportTicketSystem\obj\Debug\TechSupportTicketSystem.pdb
 C:\Users\cadupoles\Documents\Visual Studio 2012\GitHub\techSupport-Production\TechSupportTicketSystem\TechSupportTicketSystem\bin\TechSupportTicketSystem.dll
 C:\Users\cadupoles\Documents\Visual Studio 2012\GitHub\techSupport-Production\TechSupportTicketSystem\TechSupportTicketSystem\bin\TechSupportTicketSystem.pdb
-C:\Users\cadupoles\Documents\Visual Studio 2012\GitHub\techSupport-Production\TechSupportTicketSystem\TechSupportTicketSystem\obj\Debug\TechSupportTicketSystem.csprojResolveAssemblyReference.cache
 C:\Users\cadupoles\Documents\Visual Studio 2012\GitHub\techSupport-Production\TechSupportTicketSystem\TechSupportTicketSystem\obj\Debug\TechSupportTicketSystem.dll
 C:\Users\cadupoles\Documents\Visual Studio 2012\GitHub\techSupport-Production\TechSupportTicketSystem\TechSupportTicketSystem\obj\Debug\TechSupportTicketSystem.pdb
+C:\Users\cadupoles\Documents\Visual Studio 2012\GitHub\techSupport-Production\TechSupportTicketSystem\TechSupportTicketSystem\obj\Debug\TechSupportTicketSystem.csprojResolveAssemblyReference.cache
