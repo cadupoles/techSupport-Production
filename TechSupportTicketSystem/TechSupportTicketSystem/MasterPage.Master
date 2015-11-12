@@ -7,18 +7,7 @@
         
    
     <title>Technical Support</title>
-    <style>
-        h1 {
-            background-color: #cccccc;
-            padding: 10px;
-        }
 
-        .Header {
-            border: 1px solid Gray;
-            padding: 4px;
-            clear: right;
-        }
-    </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     
@@ -30,17 +19,13 @@
     <form id="form2" runat="server">
 
         <div class="menu">
-            <h1>
-                &nbsp;</h1>
-            <h1>
                 <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
-            </h1>
             <asp:Menu ID="Menu1" runat="server" DataSourceID="SiteMapDataSource1" Orientation="Horizontal" StaticDisplayLevels="2" CssClass="menu">
             </asp:Menu>
         </div>
 
         <!-- Login-->
-        <div style="float: right; margin: 4px;">
+        <div style="float: right; margin: 1px;">
             Hi,
                 <asp:LoginView ID="MasterLoginView" runat="server">
                     <AnonymousTemplate>
@@ -55,21 +40,32 @@
                 </asp:LoginView>
             <br />
             <br />
-            <a href="/Account/ChangePassword.aspx">Change Password</a>
         </div>
-        <h1 class="Header">
-            <asp:Image ID="Image1" runat="server" ImageUrl="Images/techsupport1.jpg" CssClass="image_header" />
-          <%--  <img src="Images/techsupport1.jpg" style="height: 95px; width: 311px" />--%>
+        
+        <div class="footerRainbow3">
+        </div>
+        <div class="footerRainbow2">
+        </div>        
+        <h1 class="HeaderMasterPage">
+            TECHNICAL SUPPORT
         </h1>
+         
 
         <div class="Content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
         </div>
 
-        <div>
-            <h1 class="footer">Copyright (c) 2015 Black Team
-            </h1>
+        <div class="footerRainbow1">
+            Copyright (c) 2015 Black Team
+        </div>
+        <div class="footerRainbow2">
+        </div>
+        <div class="footerRainbow3">
+        </div>
+        <div class="footerRainbow4">
+        </div>
+        <div class="footerRainbow5">
         </div>
     </form>
 </body>

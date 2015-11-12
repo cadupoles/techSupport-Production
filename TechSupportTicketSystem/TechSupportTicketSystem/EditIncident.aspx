@@ -38,13 +38,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <br />
-    <h2>Edit Incident</h2>
+    <h2 id="header_center">Edit Incident</h2>
+    <div class="editIncident">
     <table align="center" class="auto-style4">
         <tr>
-            <td class="auto-style10">Incident ID<asp:TextBox ID="txtIncidentID" runat="server"></asp:TextBox>
+            <td class="auto-style10">Incident ID:&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtIncidentID" runat="server"></asp:TextBox>
             </td>
             <td class="auto-style12">
-                Status<asp:DropDownList ID="ddlStatus" runat="server" AutoPostBack="True" DataSourceID="StatusSqlDataSource" DataTextField="Status" DataValueField="Status">
+                Status:&nbsp;&nbsp;&nbsp; <asp:DropDownList ID="ddlStatus" runat="server" AutoPostBack="True" DataSourceID="StatusSqlDataSource" DataTextField="Status" DataValueField="Status">
                     <asp:ListItem>Open</asp:ListItem>
                     <asp:ListItem>On Hold</asp:ListItem>
                     <asp:ListItem>Closed</asp:ListItem>
@@ -53,10 +54,10 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style14">Customer ID
+            <td class="auto-style14">Customer ID:&nbsp;&nbsp;&nbsp;
                 <asp:TextBox ID="txtCustomerID" runat="server" ReadOnly="True"></asp:TextBox>
             </td>
-            <td class="auto-style15">Customer Name<asp:DropDownList ID="ddlCustName" runat="server" DataSourceID="CustNameSqlDataSource" DataTextField="Name" DataValueField="CustomerID">
+            <td class="auto-style15">Customer Name:&nbsp;&nbsp;&nbsp; <asp:DropDownList ID="ddlCustName" runat="server" DataSourceID="CustNameSqlDataSource" DataTextField="Name" DataValueField="CustomerID">
                 </asp:DropDownList>
                 <asp:SqlDataSource ID="CustNameSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:techSupportDB %>" SelectCommand="SELECT * FROM [Customers] WHERE ([CustomerID] = @CustomerID)">
                     <SelectParameters>
@@ -66,11 +67,11 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style11">Product Code<asp:DropDownList ID="ddlProductCode" runat="server" DataSourceID="ProductsSqlDataSource" DataTextField="ProductCode" DataValueField="ProductCode"  AutoPostBack="True">
+            <td class="auto-style11">Product Code:&nbsp;&nbsp;&nbsp; <asp:DropDownList ID="ddlProductCode" runat="server" DataSourceID="ProductsSqlDataSource" DataTextField="ProductCode" DataValueField="ProductCode"  AutoPostBack="True">
                 </asp:DropDownList>
                 <asp:SqlDataSource ID="ProductsSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:techSupportDB %>" SelectCommand="SELECT [ProductCode], [Name], [Version], [ReleaseDate] FROM [Products]"></asp:SqlDataSource>
             </td>
-            <td class="auto-style13">Product Name<asp:DropDownList ID="ddlProductName" runat="server" AutoPostBack="True" DataSourceID="ProductNameSqlDataSource" DataTextField="Name" DataValueField="ProductCode">
+            <td class="auto-style13">Product Name:&nbsp;&nbsp;&nbsp; <asp:DropDownList ID="ddlProductName" runat="server" AutoPostBack="True" DataSourceID="ProductNameSqlDataSource" DataTextField="Name" DataValueField="ProductCode">
                 </asp:DropDownList>
                 <asp:SqlDataSource ID="ProductNameSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:techSupportDB %>" SelectCommand="SELECT [ProductCode], [Name], [Version], [ReleaseDate] FROM [Products] WHERE ([ProductCode] = @ProductCode)">
                     <SelectParameters>
@@ -80,17 +81,17 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style11">Tech Name<asp:DropDownList ID="ddlTech" runat="server" AutoPostBack="True" DataSourceID="TechSqlDataSource" DataTextField="Name" DataValueField="TechID">
+            <td class="auto-style11">Tech Name:&nbsp;&nbsp;&nbsp; <asp:DropDownList ID="ddlTech" runat="server" AutoPostBack="True" DataSourceID="TechSqlDataSource" DataTextField="Name" DataValueField="TechID">
                 </asp:DropDownList>
                 <asp:SqlDataSource ID="TechSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:techSupportDB %>" SelectCommand="SELECT [TechID], [Name], [Email], [Phone] FROM [Technicians]">
                 </asp:SqlDataSource>
             </td>
-            <td class="auto-style13">Title
+            <td class="auto-style13">Title:
                 <asp:TextBox ID="txtTitle" runat="server" Width="455px"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td class="auto-style16">DateOpened <asp:TextBox ID="txtDateOpened" runat="server" ReadOnly="True"></asp:TextBox>
+            <td class="auto-style16">DateOpened:&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtDateOpened" runat="server" ReadOnly="True"></asp:TextBox>
             </td>
             <td class="auto-style17">Description
                 <asp:TextBox ID="txtDescription" runat="server" Height="110px" TextMode="MultiLine" Width="501px"></asp:TextBox>
@@ -109,10 +110,11 @@
             <td class="auto-style10">
                 <asp:Button ID="btnUpdate" runat="server" OnClick="btnUpdate_Click" Text="Update" />
                 <asp:Button ID="btnBack" runat="server" Text="Back To Incidents" OnClick="btnBack_Click" />
-            </td>
-            <td class="auto-style12">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" Text="Cancel" />
             </td>
+            <td class="auto-style12">
+                &nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style10">
@@ -122,4 +124,5 @@
         </tr>
     </table>
     <br />
+        </div>
 </asp:Content>

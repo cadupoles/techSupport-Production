@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+ * Author: Carlos Poles
+ * Student: 2104447014
+ * Project: TechWebSupport
+ * Known Bugs: None
+ * Version: 1.0
+ * 
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +19,16 @@ namespace TechSupportTicketSystem
 {
     public partial class IncidentsManagement : System.Web.UI.Page
     {
+
+        // Property for customerID
+        public string CustomerID
+        {
+            get
+            {
+                return txtCustomerID.Text;
+            }
+        }
+
 
         // create the incident object
         App_Code.Incidents incident = new App_Code.Incidents();
@@ -44,16 +63,11 @@ namespace TechSupportTicketSystem
                         loggedUser = user;
                     }
                 }
-
-                
             }
             catch 
             {
                 throw;
             }
-
-            
-
 
             lblCustomerGrid.Enabled = false;
             lblIncidents.Enabled = false;
@@ -62,7 +76,7 @@ namespace TechSupportTicketSystem
 
         protected void btnAddIncident_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/AddIncident.aspx");
+            Server.Transfer("~/AddIncident.aspx");
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)
@@ -88,7 +102,7 @@ namespace TechSupportTicketSystem
 
                 incident.IncidentID = Convert.ToInt32(row.Cells[0].Text);
                 incident.CustomerID = Convert.ToInt32(row.Cells[1].Text);
-                incident.TechID = Convert.ToInt32(row.Cells[2].Text);
+                //incident.TechID = Convert.ToInt32(row.Cells[2].Text);
                 incident.ProductCode = row.Cells[3].Text;
                 incident.Title = row.Cells[4].Text;
                 incident.Description = row.Cells[5].Text;
@@ -116,8 +130,6 @@ namespace TechSupportTicketSystem
                     Response.Redirect("~/EditIncident.aspx"); // page redirection
                 }
               
-                
-                
             }
 
         }

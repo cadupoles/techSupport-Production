@@ -2,5 +2,5 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <h1 style= "color: red">Access is denied</h1>
+    <h1 style= "color: red; text-align: center;">Access is denied.</h1>
 </asp:Content>

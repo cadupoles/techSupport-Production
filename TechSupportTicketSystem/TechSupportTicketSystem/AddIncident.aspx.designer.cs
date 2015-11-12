@@ -94,24 +94,6 @@ namespace TechSupportTicketSystem {
         protected global::System.Web.UI.WebControls.TextBox txtBoxName;
         
         /// <summary>
-        /// lblTechID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTechID;
-        
-        /// <summary>
-        /// ddlTechnicians control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTechnicians;
-        
-        /// <summary>
         /// lblDateOpend control.
         /// </summary>
         /// <remarks>
@@ -200,6 +182,24 @@ namespace TechSupportTicketSystem {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBoxDescription;
+        
+        /// <summary>
+        /// TitleValidator0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator TitleValidator0;
+        
+        /// <summary>
+        /// lblWarning control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblWarning;
         
         /// <summary>
         /// btnAdd control.

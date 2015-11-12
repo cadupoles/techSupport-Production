@@ -48,7 +48,7 @@
         }
     </style>
     
-    <h1 id="header_center">New Customer Incident</h1>
+    <h2 id="header_center">Add Incident</h2>
 
     <div class="addIncident_page">
     
@@ -66,8 +66,8 @@
             <tr>
                 <td class="auto-style6"></td>
                 <td class="auto-style7">
-                    <asp:RequiredFieldValidator ID="CustomerIDValidator" runat="server" BorderColor="Red" BorderStyle="Solid" ControlToValidate="txtBoxCustomerID1" ErrorMessage="* required field" ForeColor="#FF3300"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" BorderColor="Red" BorderStyle="Solid" ControlToValidate="txtBoxCustomerID1" ErrorMessage="* the input should be a numeric value" ForeColor="Red" ValidationExpression="^[0-9]+$"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="CustomerIDValidator" runat="server" BorderColor="Red" BorderStyle="Solid" ControlToValidate="txtBoxCustomerID1" ErrorMessage="* required field" ForeColor="#FF3300" ValidationGroup="AddIncidentGroup"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" BorderColor="Red" BorderStyle="Solid" ControlToValidate="txtBoxCustomerID1" ErrorMessage="* the input should be a numeric value" ForeColor="Red" ValidationExpression="^[0-9]+$" ValidationGroup="AddIncidentGroup"></asp:RegularExpressionValidator>
                 </td>
                 <td></td>
             </tr>
@@ -90,20 +90,17 @@
                 <td></td>
             </tr>
             <tr>
-                <td class="auto-style2">&nbsp;</td>
-                <td class="auto-style3">&nbsp;</td>
-                <td></td>
-            </tr>
-            <tr>
                 <td class="auto-style2">
-                    <asp:Label ID="lblTechID" runat="server" Text="Technician:"></asp:Label>
+                    <%--<asp:DropDownList ID="ddlTechnicians" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="TechID" Width="200px">
+                        <asp:ListItem Selected="True" Value="1">-- Select Technician  --</asp:ListItem>
+                    </asp:DropDownList>--%>
                 </td>
                 <td class="auto-style3">
-                    <asp:DropDownList ID="ddlTechnicians" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="TechID" Width="200px">
+                    <%--<asp:DropDownList ID="ddlTechnicians" runat="server" AutoPostBack="True" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="TechID" Width="200px">
                         <asp:ListItem Selected="True" Value="1">-- Select Technician  --</asp:ListItem>
-                    </asp:DropDownList>
+                    </asp:DropDownList>--%>
                 </td>
-                <td></td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
                 <td class="auto-style2">
@@ -135,7 +132,7 @@
                     <asp:TextBox ID="txtBoxTitle" runat="server" Width="340px"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:RequiredFieldValidator ID="TitleValidator" runat="server" BorderColor="Red" BorderStyle="Solid" ControlToValidate="txtBoxTitle" ErrorMessage="* required field" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="TitleValidator" runat="server" BorderColor="Red" BorderStyle="Solid" ControlToValidate="txtBoxTitle" ErrorMessage="* required field" ForeColor="Red" ValidationGroup="AddIncidentGroup"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -145,18 +142,22 @@
                 <td class="auto-style3">
                     <asp:TextBox ID="txtBoxDescription" runat="server" Height="73px" TextMode="MultiLine" Width="340px"></asp:TextBox>
                 </td>
-                <td></td>
+                <td>
+                    <asp:RequiredFieldValidator ID="TitleValidator0" runat="server" BorderColor="Red" BorderStyle="Solid" ControlToValidate="txtBoxDescription" ErrorMessage="* required field" ForeColor="Red" ValidationGroup="AddIncidentGroup"></asp:RequiredFieldValidator>
+                </td>
             </tr>
             <tr>
                 <td class="auto-style2">&nbsp;</td>
-                <td class="auto-style3">&nbsp;</td>
+                <td class="auto-style3">
+                    <asp:Label ID="lblWarning" runat="server" Visible="False"></asp:Label>
+                </td>
                 <td></td>
             </tr>
             <tr>
                 <td class="auto-style2">
                     &nbsp;</td>
                 <td class="auto-style3">
-                    <asp:Button ID="btnAdd" runat="server" Text="Add" Width="83px" OnClick="btnAdd_Click" />
+                    <asp:Button ID="btnAdd" runat="server" Text="Add" Width="83px" OnClick="btnAdd_Click" ValidationGroup="AddIncidentGroup" />
                 &nbsp;&nbsp;
                     <asp:Button ID="btnCancel" runat="server" Text="Reset" Width="83px" OnClick="btnCancel_Click" />
                 &nbsp;

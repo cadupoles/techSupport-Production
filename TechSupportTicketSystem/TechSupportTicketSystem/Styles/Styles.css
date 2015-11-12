@@ -8,7 +8,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: .80em;
-    background-color: white;
+    background-color: #CCCCCC;
     padding: 0px;
     margin: 0px;
 }
@@ -18,23 +18,63 @@ table {
     margin-top: 34px;
 }
 
-h2 {
-     text-align: center;
+
+.paddingFooter {
+    padding: 15px;
+}
+
+.footerRainbow1 {
+    background-color: #cccccc;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.footerRainbow2 {
+    background-color: #999999;
+    padding: 5px;
+    text-align: center;
+
+}
+
+.footerRainbow3 {
+    background-color: #666666;
+    padding: 5px;
+    text-align: center;
+     clear: right;
+}
+
+.footerRainbow4 {
+    background-color: #333333;
+    padding: 5px;
+    text-align: center;
     
 }
 
+.footerRainbow5 {
+    background-color: #000000;
+    padding: 5px;
+    text-align: center;
+
+}
+
+
 /* the styles for classes */
 
-.Header {
+.HeaderMasterPage {
+    border: 0px solid Gray;
+    padding: 4px;
+    clear: right;
     text-align: center;
+    background-color: #CCCCCC;
+    text-decoration: underline overline;
+    color: #663300;
 }
 
 .menu ul li a {
-    background-color: #C0C0C0;
-    border-style: solid;
-    border-width: 1px;
+    border-width: 0px;
     font-family: Arial, Helvetica, sans-serif;
-    color: #008080;
+    color: black;
     text-decoration: none;
     line-height: 1.35em;
     display: block;
@@ -44,15 +84,12 @@ h2 {
 }
 
 .menu ul li a:hover {
-    background-color: #bfcbd6;
-    color: #006600;
+    color: #000000;
     text-decoration: none;
     text-decoration: underline;
+    font-weight: bold;
 }
-.footer {
-    font-size: 80%;
-    text-align: center;
-}
+
 .image_header {
    height: 95px; 
    width: 311px;
@@ -98,8 +135,92 @@ h2 {
 
 /*Syles for Add Incident Page*/
 
+.addRegistration_page {
+    margin: 30px auto;
+    width: 43%;
+    padding: 28px;
+    padding-bottom: 0px;
+    padding-top: 15px;
+    padding-left: 15px;
+    border: 3px solid grey;
+    background: #eee;
+}
+
 .addIncident_page {
-    margin: auto;
+    margin: 30px auto;
+    width: 43%;
+    padding: 28px;
+    padding-bottom: 0px;
+    padding-top: 25px;
+    padding-left: 25px;
+    border: 3px solid grey;
+    background: #eee;
+}
+
+.technicianView {
+    margin: 30px auto;
+    width: 90%;
+    padding: 25px 28px 25px 25px;
+    border: 3px solid grey;
+    background: #eee;
+}
+
+.technicianMaintenance {
+    margin: 30px auto;
+    width: 90%;
+    padding: 28px;
+    padding-top: 25px;
+    padding-left: 25px;
+    border: 3px solid grey;
+    background: #eee;
+}
+
+.productManagement {
+    margin: 30px auto;
+    width: 90%;
+    padding: 28px;
+    padding-bottom: 0px;
+    padding-top: 25px;
+    padding-left: 25px;
+    border: 3px solid grey;
+    background: #eee;
+}
+
+.incidentManagement {
+    margin: 30px auto;
+    width: 90%;
+    padding: 28px;
+    padding-bottom: 0px;
+    padding-top: 25px;
+    padding-left: 25px;
+    border: 3px solid grey;
+    background: #eee;
+}
+
+.editIncident {
+    margin: 30px auto;
+    width: 70%;
+    padding: 28px;
+    padding-bottom: 0px;
+    padding-top: 25px;
+    padding-left: 25px;
+    border: 3px solid grey;
+    background: #eee;
+}
+
+.addRegistration_page {
+    margin: 30px auto;
+    width: 43%;
+    padding: 28px;
+    padding-bottom: 0px;
+    padding-top: 25px;
+    padding-left: 25px;
+    border: 3px solid grey;
+    background: #eee;
+}
+
+.addIncident_page {
+    margin: 30px auto;
     width: 43%;
     padding: 28px;
     padding-bottom: 0px;
@@ -113,6 +234,7 @@ h2 {
     margin: auto;
     width: 25%;
     padding: 25px;
+    text-align:center;
 }
 
 .auto-style3 {

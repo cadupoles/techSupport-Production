@@ -26,15 +26,32 @@ namespace TechSupportTicketSystem
                     // Response.Redirect("~/AccessDenied.aspx");
                     return;
                 }
+                
+                
+
+                // Get data form the Incident Management page using strongly typed reference 
+                IncidentsManagement previousPage = (IncidentsManagement) this.Page.PreviousPage;
+
+                // Check whether it is not null to prvent Null Reference Exception
+                if (previousPage != null)
+                {
+                    // Access the CustomerID public property
+                    txtBoxCustomerID1.Text = previousPage.CustomerID;
+
+                    GetCustomer_DB();
+                }
+                
+
+                
 
                 ViewState["PreviousPage"] =
               Request.UrlReferrer;  // Check if the ViewState contains Previous page URL
 
                 BindDataProductsDDL_DB();
 
-                ddlTechnicians.AutoPostBack = true;
-                ddlTechnicians.DataBind();
-                ddlTechnicians.Items.Insert(0, new ListItem("-- Select Technician --", "0"));
+                //ddlTechnicians.AutoPostBack = true;
+                //ddlTechnicians.DataBind();
+                //ddlTechnicians.Items.Insert(0, new ListItem("-- Select Technician --", "0"));
             }
 
             // Get the date today
@@ -120,7 +137,7 @@ namespace TechSupportTicketSystem
 
             int custID = Int32.Parse(txtBoxCustomerID1.Text);
             string custName = Convert.ToString(txtBoxName.Text).Trim();
-            int techID = Convert.ToInt32(ddlTechnicians.SelectedValue);
+            //int techID = Convert.ToInt32(ddlTechnicians.SelectedValue);
             dateTime = Convert.ToDateTime(txtBoxDateOpened.Text);
             string productCode = ddlProduct.SelectedValue.Trim();
             string incTitle = Convert.ToString(txtBoxTitle.Text).Trim();
@@ -131,7 +148,7 @@ namespace TechSupportTicketSystem
             {
                 // Open connection with Database and insert data into Incidents table
                 connection.Open();
-                insertStatement = "INSERT INTO Incidents (CustomerID,ProductCode,TechID,DateOpened,Title,Description, Status) VALUES ('" + custID + "','" + productCode + "','" + techID + "','" + dateTime.ToString("yyyy-MM-dd HH:mm:ss") + "','" + incTitle + "','" + incDescription + "','" + status + "')";
+                insertStatement = "INSERT INTO Incidents (CustomerID,ProductCode,DateOpened,Title,Description, Status) VALUES ('" + custID + "','" + productCode + "','" + dateTime.ToString("yyyy-MM-dd HH:mm:ss") + "','" + incTitle + "','" + incDescription + "','" + status + "')";
 
                 SqlCommand insertCommand = new SqlCommand(insertStatement, connection);
                 insertCommand.ExecuteNonQuery();
@@ -163,7 +180,7 @@ namespace TechSupportTicketSystem
             txtBoxCustomerID1.Text = string.Empty;
             txtBoxCustomerID2.Text = string.Empty;
             txtBoxName.Text = string.Empty;
-            ddlTechnicians.ClearSelection();
+            //ddlTechnicians.ClearSelection();
             txtBoxDateOpened.Text = string.Empty;
             txtBoxTitle.Text = string.Empty;
             txtBoxDescription.Text = string.Empty;
@@ -173,7 +190,8 @@ namespace TechSupportTicketSystem
         protected void btnAdd_Click(object sender, EventArgs e)
         {
             AddIncident_DB();
-            Response.Redirect("~/Default.aspx");
+            lblWarning.Visible = true;
+            lblWarning.Text = "The incident has been added.";
         }
 
         protected void btnBack_Click(object sender, EventArgs e)
