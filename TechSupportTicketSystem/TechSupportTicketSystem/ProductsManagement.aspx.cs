@@ -94,9 +94,7 @@ namespace TechSupportTicketSystem
         {
             return ConfigurationManager.ConnectionStrings["techSupportDB"].ConnectionString;
         }
-
-      
-
+        
         protected void btnInsert_Click(object sender, EventArgs e)
         {
             TextBox txtproductCode = (TextBox)ProductsGridView.FooterRow.FindControl("txtProductCode");
